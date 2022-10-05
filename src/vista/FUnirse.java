@@ -44,7 +44,9 @@ public class FUnirse extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Unirse a Partida");
-        setPreferredSize(new java.awt.Dimension(600, 400));
+        setFocusableWindowState(false);
+        setMinimumSize(new java.awt.Dimension(545, 313));
+        setPreferredSize(new java.awt.Dimension(545, 313));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));

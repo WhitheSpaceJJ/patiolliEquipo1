@@ -185,9 +185,9 @@ public class FJuego extends javax.swing.JFrame {
         jLabel6.setBounds(10, 120, 120, 21);
 
         jLabel7.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel7.setText("jLabel4");
+        jLabel7.setText("100");
         jPanel1.add(jLabel7);
-        jLabel7.setBounds(140, 120, 46, 19);
+        jLabel7.setBounds(140, 120, 24, 19);
 
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(null);
@@ -269,7 +269,7 @@ public class FJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lanzarActionPerformed
-        this.negocio.dibujarTablero(tablero.getGraphics(), 10);
+        this.negocio.dibujarTablero(tablero.getGraphics(), 14);
         this.negocio.dibujarDados(fichas.getGraphics());
 //        TODO add your handling code here:
 //        Juego.tablero(tablero.getGraphics());

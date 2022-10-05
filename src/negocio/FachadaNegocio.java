@@ -7,6 +7,7 @@ package negocio;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 
 /**
  *
@@ -46,10 +47,17 @@ public class FachadaNegocio implements INegocio {
             Figura cA6 = new CasillaEspecial(xA6, yA6, g, "cA6", cA6T);
             int xA7[] = {92, 132, 104, 64};
             int yA7[] = {92, 52, 24, 64};
-            Figura cA7 = new CasillaNormal(xA7, yA7, g, "cA7");
+            int xA7B[] = {20, 64, 20};
+            int yA7B[] = {104, 64, 20};
+            Figura cA7 = new CasillaBordeada(xA7, yA7, g, "cA7", xA7B, yA7B);
+//            Figura cA7 = new CasillaNormal(xA7, yA7, g, "cA7");
             int xA8[] = {52, 92, 64, 24};
             int yA8[] = {132, 92, 64, 104};
-            Figura cA8 = new CasillaNormal(xA8, yA8, g, "cA8");
+            int xA8B[] = {64, 104, 24};
+            int yA8B[] = {64, 24, 20};
+            Figura cA8 = new CasillaBordeada(xA8, yA8, g, "cA8", xA8B, yA8B);
+
+//            Figura cA8 = new CasillaNormal(xA8, yA8, g, "cA8");
             int xA9[] = {80, 120, 92, 52};
             int yA9[] = {160, 120, 92, 132};
             Polygon cA9T = new Polygon();
@@ -121,10 +129,16 @@ public class FachadaNegocio implements INegocio {
             Figura cB6 = new CasillaEspecial(xB6, yB6, g, "cB6", cB6T);
             int xB7[] = {468, 508, 536, 496};
             int yB7[] = {52, 92, 64, 24};
-            Figura cB7 = new CasillaNormal(xB7, yB7, g, "cB7");
+            int xB7B[] = {496,536,560};
+            int yB7B[] = {24,64,40};
+            Figura cB7 = new CasillaBordeada(xB7, yB7, g, "cB7", xB7B, yB7B);
+//            Figura cB7 = new CasillaNormal(xB7, yB7, g, "cB7");
             int xB8[] = {508, 548, 576, 536};
             int yB8[] = {92, 132, 104, 64};
-            Figura cB8 = new CasillaNormal(xB8, yB8, g, "cB8");
+            int xB8B[] = {536,576,560};
+            int yB8B[] = {64,104,40};
+            Figura cB8 = new CasillaBordeada(xB8, yB8, g, "cB8",xB8B,yB8B);
+//            Figura cB8 = new CasillaNormal(xB8, yB8, g, "cB8");
             int xB9[] = {480, 520, 548, 508};
             int yB9[] = {120, 160, 132, 92};
             Polygon cB9T = new Polygon();
@@ -1084,22 +1098,24 @@ public class FachadaNegocio implements INegocio {
 
     @Override
     public void dibujarDados(Graphics g) {
-
-        g.setColor(Color.red);
-        g.drawRect(35, 35, 70, 105);
-        g.drawOval(52, 87, 35, 35);
-        g.setColor(Color.green);
-        g.drawRect(140, 35, 70, 105);
-        g.drawOval(157, 87, 35, 35);
-        g.setColor(Color.yellow);
-        g.drawRect(245, 35, 70, 105);
-        g.drawOval(262, 87, 35, 35);
-        g.setColor(Color.blue);
-        g.drawRect(70, 175, 70, 105);
-        g.drawOval(87, 217, 35, 35);
-        g.setColor(Color.pink);
-        g.drawRect(210, 175, 70, 105);
-        g.drawOval(227, 227, 35, 35);
+        //Despues se implementara el azar
+        //    F1    g.drawOval(52, 87, 35, 35);
+        Figura f1 = new Dado(35, 35, 70, 105, false, g, "f1");
+//      F2  g.drawOval(157, 87, 35, 35);
+        Figura f2 = new Dado(140, 35, 70, 105, false, g, "f1");
+//     F3   g.drawOval(262, 87, 35, 35);
+        Figura f3 = new Dado(245, 35, 70, 105, false, g, "f1");
+//      F4  g.drawOval(87, 217, 35, 35);
+        Figura f4 = new Dado(70, 175, 70, 105, false, g, "f1");
+//    F5    g.drawOval(227, 227, 35, 35);
+        Figura f5 = new Dado(210, 175, 70, 105, false, g, "f1");
+        CompositorCasilla dados = new CompositorCasilla("dados");
+        dados.addElemento(f1);
+        dados.addElemento(f2);
+        dados.addElemento(f3);
+        dados.addElemento(f4);
+        dados.addElemento(f5);
+        dados.dibujar();
     }
 
 }

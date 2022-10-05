@@ -7,44 +7,79 @@ package negocio;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import java.awt.Rectangle;
 
 /**
  *
  * @author Judi
  */
-public class Ficha extends Figura{
-    private int[] x;
-    private int[] y;
+public class Dado extends Figura {
+
+    private int x;
+    private int y;
+    private int width;
+    private int heigth;
+    private boolean cara;
     private Graphics g;
 
-    public Ficha(int[] x, int[] y, Graphics g, String posicion) {
+    public Dado(int x, int y, int width, int heigth, boolean cara, Graphics g, String posicion) {
         super(posicion);
         this.x = x;
         this.y = y;
+        this.width = width;
+        this.heigth = heigth;
+        this.cara = cara;
         this.g = g;
     }
 
     @Override
     public void dibujar() {
-        g.setColor(Color.black);
-        Polygon polygon1 = new Polygon(x, y, x.length);
-        g.drawPolygon(polygon1);
+        if (cara) {
+            //Aun no implementando         g.drawOval(52, 87, 35, 35);
+        } else {
+            g.setColor(Color.BLACK);
+            g.drawRect(x, y, width, heigth);
+        }
     }
 
-    public int[] getX() {
+    public int getX() {
         return x;
     }
 
-    public void setX(int[] x) {
+    public void setX(int x) {
         this.x = x;
     }
 
-    public int[] getY() {
+    public int getY() {
         return y;
     }
 
-    public void setY(int[] y) {
+    public void setY(int y) {
         this.y = y;
+    }
+
+    public int getWidth() {
+        return width;
+    }
+
+    public void setWidth(int width) {
+        this.width = width;
+    }
+
+    public int getHeigth() {
+        return heigth;
+    }
+
+    public void setHeigth(int heigth) {
+        this.heigth = heigth;
+    }
+
+    public boolean isCara() {
+        return cara;
+    }
+
+    public void setCara(boolean cara) {
+        this.cara = cara;
     }
 
     public Graphics getG() {
@@ -56,4 +91,3 @@ public class Ficha extends Figura{
     }
 
 }
-
