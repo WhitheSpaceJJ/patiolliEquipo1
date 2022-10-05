@@ -14,10 +14,13 @@ import java.awt.Rectangle;
  * @author Judi
  */
 public class FachadaNegocio implements INegocio {
+//Ärreglo bimiensional para ver posicionamiento de fichas mañana miercoles lo realizaremos
+    //lista para obtener puntos x y puntos de y. 
+    //Nota Profe: Esto fue realizado con el fin de cumplir con el avance.
 
     @Override
     public void dibujarTablero(Graphics g, int tamaño) {
-        //Solamente  esta puesto el tamaño de 14, proximamente modificaremos los tamaño 10 y 12
+        //Solamente  esta puesto el tamaño de 14, mañana modificaremos los tamaños los tamaño 10 y 12
         if (tamaño == 14) {
             int xA1[] = {260, 300, 272, 232};
             int yA1[] = {260, 220, 192, 232};
@@ -47,16 +50,15 @@ public class FachadaNegocio implements INegocio {
             Figura cA6 = new CasillaEspecial(xA6, yA6, g, "cA6", cA6T);
             int xA7[] = {92, 132, 104, 64};
             int yA7[] = {92, 52, 24, 64};
-            int xA7B[] = {20, 64, 20};
-            int yA7B[] = {104, 64, 20};
+            int xA7B[] = {24, 64, 40};
+            int yA7B[] = {104, 64, 40};
             Figura cA7 = new CasillaBordeada(xA7, yA7, g, "cA7", xA7B, yA7B);
 //            Figura cA7 = new CasillaNormal(xA7, yA7, g, "cA7");
             int xA8[] = {52, 92, 64, 24};
             int yA8[] = {132, 92, 64, 104};
-            int xA8B[] = {64, 104, 24};
-            int yA8B[] = {64, 24, 20};
+            int xA8B[] = {64, 104, 40};
+            int yA8B[] = {64, 24, 40};
             Figura cA8 = new CasillaBordeada(xA8, yA8, g, "cA8", xA8B, yA8B);
-
 //            Figura cA8 = new CasillaNormal(xA8, yA8, g, "cA8");
             int xA9[] = {80, 120, 92, 52};
             int yA9[] = {160, 120, 92, 132};
@@ -129,15 +131,15 @@ public class FachadaNegocio implements INegocio {
             Figura cB6 = new CasillaEspecial(xB6, yB6, g, "cB6", cB6T);
             int xB7[] = {468, 508, 536, 496};
             int yB7[] = {52, 92, 64, 24};
-            int xB7B[] = {496,536,560};
-            int yB7B[] = {24,64,40};
+            int xB7B[] = {496, 536, 560};
+            int yB7B[] = {24, 64, 40};
             Figura cB7 = new CasillaBordeada(xB7, yB7, g, "cB7", xB7B, yB7B);
 //            Figura cB7 = new CasillaNormal(xB7, yB7, g, "cB7");
             int xB8[] = {508, 548, 576, 536};
             int yB8[] = {92, 132, 104, 64};
-            int xB8B[] = {536,576,560};
-            int yB8B[] = {64,104,40};
-            Figura cB8 = new CasillaBordeada(xB8, yB8, g, "cB8",xB8B,yB8B);
+            int xB8B[] = {536, 576, 560};
+            int yB8B[] = {64, 104, 40};
+            Figura cB8 = new CasillaBordeada(xB8, yB8, g, "cB8", xB8B, yB8B);
 //            Figura cB8 = new CasillaNormal(xB8, yB8, g, "cB8");
             int xB9[] = {480, 520, 548, 508};
             int yB9[] = {120, 160, 132, 92};
@@ -210,10 +212,16 @@ public class FachadaNegocio implements INegocio {
             Figura cD6 = new CasillaEspecial(xD6, yD6, g, "cD6", cD6T);
             int xD7[] = {468, 508, 536, 496};
             int yD7[] = {548, 508, 536, 576};
-            Figura cD7 = new CasillaNormal(xD7, yD7, g, "cD7");
+            int xD7B[] = {496, 536, 560};
+            int yD7B[] = {576, 536, 560};
+            Figura cD7 = new CasillaBordeada(xD7, yD7, g, "cD7", xD7B, yD7B);
+//            Figura cD7 = new CasillaNormal(xD7, yD7, g, "cD7");
             int xD8[] = {508, 548, 576, 536};
             int yD8[] = {508, 468, 496, 536};
-            Figura cD8 = new CasillaNormal(xD8, yD8, g, "cD8");
+            int xD8B[] = {536, 576, 560};
+            int yD8B[] = {536, 496, 560};
+            Figura cD8 = new CasillaBordeada(xD8, yD8, g, "cD8", xD8B, yD8B);
+//            Figura cD8 = new CasillaNormal(xD8, yD8, g, "cD8");
             int xD9[] = {480, 520, 548, 508};
             int yD9[] = {480, 440, 468, 508};
             Polygon cD9T = new Polygon();
@@ -285,10 +293,17 @@ public class FachadaNegocio implements INegocio {
             Figura cC6 = new CasillaEspecial(xC6, yC6, g, "cC6", cC6T);
             int xC7[] = {92, 132, 104, 64};
             int yC7[] = {508, 548, 576, 536};
-            Figura cC7 = new CasillaNormal(xC7, yC7, g, "cC7");
+            int xC7B[] = {24, 64, 40};
+            int yC7B[] = {496, 536, 560};
+            Figura cC7 = new CasillaBordeada(xC7, yC7, g, "cC7", xC7B, yC7B);
+
+//            Figura cC7 = new CasillaNormal(xC7, yC7, g, "cC7");
             int xC8[] = {52, 92, 64, 24};
             int yC8[] = {468, 508, 536, 496};
-            Figura cC8 = new CasillaNormal(xC8, yC8, g, "cC8");
+            int xC8B[] = {64, 104, 40};
+            int yC8B[] = {536, 576, 560};
+            Figura cC8 = new CasillaBordeada(xC8, yC8, g, "cC8", xC8B, yC8B);
+//            Figura cC8 = new CasillaNormal(xC8, yC8, g, "cC8");
             int xC9[] = {80, 120, 92, 52};
             int yC9[] = {440, 480, 508, 468};
             Polygon cC9T = new Polygon();
