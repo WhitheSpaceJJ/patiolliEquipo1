@@ -51,6 +51,11 @@ public class FInicio extends javax.swing.JFrame {
 
         jButtonEntrar.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
         jButtonEntrar.setText("Entrar");
+        jButtonEntrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButtonEntrarActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButtonEntrar);
         jButtonEntrar.setBounds(20, 200, 100, 50);
 
@@ -74,7 +79,23 @@ public class FInicio extends javax.swing.JFrame {
 
     private void JButtonCrearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_JButtonCrearActionPerformed
         // TODO add your handling code here:
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FCrearPartida().setVisible(true);
+            }
+        });
     }//GEN-LAST:event_JButtonCrearActionPerformed
+
+    private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
+        // TODO add your handling code here:
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FUnirse().setVisible(true);
+            }
+        });
+    }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     /**
      * @param args the command line arguments
