@@ -16,21 +16,31 @@ import negocio.INegocio;
  */
 public class FJuego extends javax.swing.JFrame {
 
-   private  INegocio negocio;
-private int tamaño;
+    private INegocio negocio;
+    private int tamaño;
+
     /**
      * Creates new form VistaJugador
      */
     public FJuego() {
         initComponents();
-        this.tamaño=14;
+        this.tamaño = 14;
         this.negocio = new FachadaNegocio();
-        paint(tablero.getGraphics());
+//        JPanel p = new JPanel() {
+//            @Override
+//            public void paint(Graphics g) {
+//                super.paint(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+//                g.drawLine(100, 100, 200, 300);
+//            }
+//        };
+//        add(p);
+//        paint(tablero.getGraphics());
     }
 
+    @Override
     public void paint(Graphics g) {
-        super.paint(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-        this.negocio.dibujarTablero(g,tamaño);
+        super.paint(g);
+        this.negocio.dibujarTablero(tablero.getGraphics(), tamaño);
     }
 
     /**
