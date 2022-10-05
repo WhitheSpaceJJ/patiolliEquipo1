@@ -4,6 +4,9 @@
  */
 package vista;
 
+import java.awt.Component;
+import java.awt.Graphics;
+import javax.swing.JPanel;
 import negocio.FachadaNegocio;
 import negocio.INegocio;
 
@@ -13,14 +16,21 @@ import negocio.INegocio;
  */
 public class FJuego extends javax.swing.JFrame {
 
-    INegocio negocio;
-
+   private  INegocio negocio;
+private int tamaño;
     /**
      * Creates new form VistaJugador
      */
     public FJuego() {
         initComponents();
+        this.tamaño=14;
         this.negocio = new FachadaNegocio();
+        paint(tablero.getGraphics());
+    }
+
+    public void paint(Graphics g) {
+        super.paint(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
+        this.negocio.dibujarTablero(g,tamaño);
     }
 
     /**
@@ -274,7 +284,6 @@ public class FJuego extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lanzarActionPerformed
-        this.negocio.dibujarTablero(tablero.getGraphics(), 14);
         this.negocio.dibujarDados(fichas.getGraphics());
 //        TODO add your handling code here:
 //        Juego.tablero(tablero.getGraphics());
@@ -283,7 +292,7 @@ public class FJuego extends javax.swing.JFrame {
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
-        
+
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
