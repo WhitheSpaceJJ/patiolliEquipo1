@@ -293,10 +293,15 @@ public class FJuego extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void lanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lanzarActionPerformed
+    @Override
+    public void repaint() {
         this.negocio.dibujarDados(fichas.getGraphics());
+    }
+
+    private void lanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lanzarActionPerformed
 //        TODO add your handling code here:
 //        Juego.tablero(tablero.getGraphics());
+        repaint();
 //        Juego.dados(fichas.getGraphics());
     }//GEN-LAST:event_lanzarActionPerformed
 
