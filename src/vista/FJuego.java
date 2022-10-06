@@ -35,6 +35,10 @@ public class FJuego extends javax.swing.JFrame {
 //        };
 //        add(p);
 //        paint(tablero.getGraphics());
+  
+    
+    
+    
     }
 
     @Override
@@ -57,18 +61,16 @@ public class FJuego extends javax.swing.JFrame {
         jugador = new javax.swing.JLabel();
         MontoTitulo = new javax.swing.JLabel();
         fichas = new javax.swing.JPanel();
-        dinero = new javax.swing.JLabel();
         lanzar = new javax.swing.JButton();
         MontoTitulo1 = new javax.swing.JLabel();
-        dinero1 = new javax.swing.JLabel();
+        LPena = new javax.swing.JLabel();
+        LMontoActual = new javax.swing.JLabel();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
-        jLabel5 = new javax.swing.JLabel();
+        LNombreJugador = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
-        jLabel7 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
@@ -77,10 +79,12 @@ public class FJuego extends javax.swing.JFrame {
         jLabel12 = new javax.swing.JLabel();
         jLabel13 = new javax.swing.JLabel();
         jLabel14 = new javax.swing.JLabel();
+        LPena1 = new javax.swing.JLabel();
+        LMontoActual1 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jLabel15 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
-        jList1 = new javax.swing.JList<>();
+        ListaJugadores = new javax.swing.JList<>();
         jPanel4 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButtonSalir = new javax.swing.JButton();
@@ -120,9 +124,9 @@ public class FJuego extends javax.swing.JFrame {
         jugador.setBounds(140, 10, 150, 60);
 
         MontoTitulo.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        MontoTitulo.setText("Fichas En Juego;");
+        MontoTitulo.setText("Penalización En Juego;");
         datoJugador.add(MontoTitulo);
-        MontoTitulo.setBounds(20, 120, 160, 60);
+        MontoTitulo.setBounds(20, 120, 210, 60);
 
         fichas.setBackground(new java.awt.Color(255, 255, 255));
         fichas.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
@@ -142,11 +146,6 @@ public class FJuego extends javax.swing.JFrame {
         datoJugador.add(fichas);
         fichas.setBounds(20, 240, 350, 350);
 
-        dinero.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        dinero.setText("0");
-        datoJugador.add(dinero);
-        dinero.setBounds(210, 120, 90, 60);
-
         lanzar.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         lanzar.setText("Lanzar");
         lanzar.addActionListener(new java.awt.event.ActionListener() {
@@ -162,10 +161,15 @@ public class FJuego extends javax.swing.JFrame {
         datoJugador.add(MontoTitulo1);
         MontoTitulo1.setBounds(20, 70, 170, 60);
 
-        dinero1.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        dinero1.setText("20000");
-        datoJugador.add(dinero1);
-        dinero1.setBounds(210, 70, 170, 60);
+        LPena.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        LPena.setText("VACIO");
+        datoJugador.add(LPena);
+        LPena.setBounds(240, 140, 120, 30);
+
+        LMontoActual.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
+        LMontoActual.setText("VACIO");
+        datoJugador.add(LMontoActual);
+        LMontoActual.setBounds(240, 90, 110, 22);
 
         getContentPane().add(datoJugador);
         datoJugador.setBounds(600, 0, 400, 600);
@@ -185,63 +189,63 @@ public class FJuego extends javax.swing.JFrame {
         jLabel2.setBounds(10, 70, 90, 21);
 
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
-        jLabel3.setText("Fichas en Juego");
+        jLabel3.setText("Penalización En Juego");
         jPanel1.add(jLabel3);
-        jLabel3.setBounds(10, 170, 130, 19);
+        jLabel3.setBounds(10, 170, 160, 19);
 
-        jLabel4.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel4.setText("Jose");
-        jPanel1.add(jLabel4);
-        jLabel4.setBounds(140, 70, 80, 20);
-
-        jLabel5.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel5.setText("0");
-        jPanel1.add(jLabel5);
-        jLabel5.setBounds(140, 170, 8, 19);
+        LNombreJugador.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        LNombreJugador.setText("VACIO");
+        jPanel1.add(LNombreJugador);
+        LNombreJugador.setBounds(170, 70, 80, 20);
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel6.setText("Monto Actual");
         jPanel1.add(jLabel6);
         jLabel6.setBounds(10, 120, 120, 21);
 
-        jLabel7.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
-        jLabel7.setText("100");
-        jPanel1.add(jLabel7);
-        jLabel7.setBounds(140, 120, 24, 19);
-
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanel2.setLayout(null);
 
         jLabel8.setText("Turno ");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(10, 10, 35, 16);
+        jLabel8.setBounds(10, 10, 31, 14);
 
         jLabel9.setText("Jugador");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(10, 50, 60, 16);
+        jLabel9.setBounds(10, 50, 60, 14);
 
         jLabel10.setText("Fichas en Juego");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(10, 110, 100, 16);
+        jLabel10.setBounds(10, 110, 100, 14);
 
         jLabel11.setText("jLabel4");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(120, 50, 41, 16);
+        jLabel11.setBounds(120, 50, 34, 14);
 
         jLabel12.setText("jLabel4");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(120, 110, 41, 16);
+        jLabel12.setBounds(120, 110, 34, 14);
 
         jLabel13.setText("Monto Actual");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(10, 80, 70, 16);
+        jLabel13.setBounds(10, 80, 70, 14);
 
         jLabel14.setText("jLabel4");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(120, 80, 41, 16);
+        jLabel14.setBounds(120, 80, 34, 14);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 600, 240, 170);
+
+        LPena1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        LPena1.setText("VACIO");
+        jPanel1.add(LPena1);
+        LPena1.setBounds(180, 170, 70, 19);
+
+        LMontoActual1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
+        LMontoActual1.setText("VACIO");
+        jPanel1.add(LMontoActual1);
+        LMontoActual1.setBounds(180, 120, 42, 19);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(1000, 0, 250, 240);
@@ -255,7 +259,7 @@ public class FJuego extends javax.swing.JFrame {
         jPanel3.add(jLabel15);
         jLabel15.setBounds(30, 20, 100, 16);
 
-        jScrollPane2.setViewportView(jList1);
+        jScrollPane2.setViewportView(ListaJugadores);
 
         jPanel3.add(jScrollPane2);
         jScrollPane2.setBounds(20, 50, 200, 100);
@@ -359,11 +363,15 @@ public class FJuego extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel LMontoActual;
+    public static javax.swing.JLabel LMontoActual1;
+    public static javax.swing.JLabel LNombreJugador;
+    public static javax.swing.JLabel LPena;
+    public static javax.swing.JLabel LPena1;
+    public static javax.swing.JList<String> ListaJugadores;
     private javax.swing.JLabel MontoTitulo;
     private javax.swing.JLabel MontoTitulo1;
     private javax.swing.JPanel datoJugador;
-    private javax.swing.JLabel dinero;
-    private javax.swing.JLabel dinero1;
     private javax.swing.JPanel fichas;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButtonSalir;
@@ -377,13 +385,9 @@ public class FJuego extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-    private javax.swing.JList<String> jList1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;

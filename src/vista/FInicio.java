@@ -19,9 +19,11 @@ public class FInicio extends javax.swing.JFrame {
      */
     public FInicio() {
         initComponents();
-        ImageIcon imagen = new ImageIcon(getClass().getResource("/recursos/portada.jpg"));
-        Icon apoyo = new ImageIcon(imagen.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
-        this.fondo.setIcon(apoyo);
+//        ImageIcon imagen = new ImageIcon("recursos/portada.jpg");
+//        getClass().getResource(imagen);
+        
+//        Icon apoyo = new ImageIcon(imagen.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
+//        this.fondo.setIcon(apoyo);
     }
 
     /**
@@ -71,7 +73,7 @@ public class FInicio extends javax.swing.JFrame {
 
         fondo.setPreferredSize(new java.awt.Dimension(590, 400));
         getContentPane().add(fondo);
-        fondo.setBounds(-20, 0, 610, 400);
+        fondo.setBounds(100, 30, 660, 310);
 
         pack();
         setLocationRelativeTo(null);

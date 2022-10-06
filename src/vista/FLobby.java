@@ -4,17 +4,24 @@
  */
 package vista;
 
+import Dominio.usuario;
+import java.util.ArrayList;
+import javax.swing.DefaultListModel;
+import javax.swing.DefaultListSelectionModel;
+
 /**
  *
  * @author Judi
  */
 public class FLobby extends javax.swing.JFrame {
-
+ DefaultListModel modelo = new DefaultListModel();
+ ArrayList<usuario> usuarios = new ArrayList();
     /**
      * Creates new form FLobbyHost
      */
     public FLobby() {
         initComponents();
+        
     }
 
     /**
@@ -31,79 +38,98 @@ public class FLobby extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
         jPanelJugador1 = new javax.swing.JPanel();
-        jLabel3 = new javax.swing.JLabel();
+        Ljugador1 = new javax.swing.JLabel();
+        Lcolor1 = new javax.swing.JLabel();
         jPanelJugador2 = new javax.swing.JPanel();
-        jLabel4 = new javax.swing.JLabel();
+        Ljugador2 = new javax.swing.JLabel();
+        Lcolor2 = new javax.swing.JLabel();
         jPanelJugador3 = new javax.swing.JPanel();
-        jLabel5 = new javax.swing.JLabel();
+        Ljugador3 = new javax.swing.JLabel();
+        Lcolor3 = new javax.swing.JLabel();
         jPanelJugador4 = new javax.swing.JPanel();
-        jLabel2 = new javax.swing.JLabel();
+        Ljugador4 = new javax.swing.JLabel();
+        Lcolor4 = new javax.swing.JLabel();
         jButtonInicar = new javax.swing.JButton();
+        LFondo = new javax.swing.JLabel();
+        LApuesta = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Lobby");
-        setPreferredSize(new java.awt.Dimension(600, 375));
+        setMinimumSize(new java.awt.Dimension(600, 375));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));
-        jPanel1.setLayout(null);
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
         jLabel1.setText("Lobby de Espera Jugadores");
-        jPanel1.add(jLabel1);
-        jLabel1.setBounds(110, 10, 400, 50);
-        jPanel1.add(jSeparator1);
-        jSeparator1.setBounds(0, 80, 600, 10);
-        jPanel1.add(jSeparator2);
-        jSeparator2.setBounds(0, 268, 600, 2);
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 10, 400, 50));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 600, 10));
+        jPanel1.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 268, 600, -1));
 
         jPanelJugador1.setBackground(new java.awt.Color(204, 255, 255));
         jPanelJugador1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelJugador1.setLayout(null);
 
-        jLabel3.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel3.setText("Jugador 1");
-        jPanelJugador1.add(jLabel3);
-        jLabel3.setBounds(10, 10, 110, 30);
+        Ljugador1.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Ljugador1.setText("\"DISPONIBLE\"");
+        jPanelJugador1.add(Ljugador1);
+        Ljugador1.setBounds(10, 10, 110, 30);
 
-        jPanel1.add(jPanelJugador1);
-        jPanelJugador1.setBounds(20, 80, 130, 180);
+        Lcolor1.setFont(new java.awt.Font("Arial Black", 1, 8)); // NOI18N
+        Lcolor1.setText("\"DISPONIBLE\"");
+        jPanelJugador1.add(Lcolor1);
+        Lcolor1.setBounds(30, 30, 70, 30);
+
+        jPanel1.add(jPanelJugador1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 130, 180));
 
         jPanelJugador2.setBackground(new java.awt.Color(204, 255, 255));
         jPanelJugador2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelJugador2.setLayout(null);
 
-        jLabel4.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel4.setText("Jugador 2");
-        jPanelJugador2.add(jLabel4);
-        jLabel4.setBounds(10, 10, 110, 30);
+        Ljugador2.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Ljugador2.setText("\"DISPONIBLE\"");
+        jPanelJugador2.add(Ljugador2);
+        Ljugador2.setBounds(10, 10, 110, 30);
 
-        jPanel1.add(jPanelJugador2);
-        jPanelJugador2.setBounds(160, 80, 130, 180);
+        Lcolor2.setFont(new java.awt.Font("Arial Black", 1, 8)); // NOI18N
+        Lcolor2.setText("\"DISPONIBLE\"");
+        jPanelJugador2.add(Lcolor2);
+        Lcolor2.setBounds(30, 30, 70, 30);
+
+        jPanel1.add(jPanelJugador2, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 80, 130, 180));
 
         jPanelJugador3.setBackground(new java.awt.Color(204, 255, 255));
         jPanelJugador3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelJugador3.setLayout(null);
 
-        jLabel5.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel5.setText("Jugador 3");
-        jPanelJugador3.add(jLabel5);
-        jLabel5.setBounds(10, 10, 110, 30);
+        Ljugador3.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Ljugador3.setText("\"DISPONIBLE\"");
+        jPanelJugador3.add(Ljugador3);
+        Ljugador3.setBounds(10, 10, 110, 30);
 
-        jPanel1.add(jPanelJugador3);
-        jPanelJugador3.setBounds(300, 80, 130, 180);
+        Lcolor3.setFont(new java.awt.Font("Arial Black", 1, 8)); // NOI18N
+        Lcolor3.setText("\"DISPONIBLE\"");
+        jPanelJugador3.add(Lcolor3);
+        Lcolor3.setBounds(30, 30, 70, 30);
+
+        jPanel1.add(jPanelJugador3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 80, 130, 180));
 
         jPanelJugador4.setBackground(new java.awt.Color(204, 255, 255));
         jPanelJugador4.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jPanelJugador4.setLayout(null);
 
-        jLabel2.setFont(new java.awt.Font("Arial Black", 1, 18)); // NOI18N
-        jLabel2.setText("Jugador 4");
-        jPanelJugador4.add(jLabel2);
-        jLabel2.setBounds(10, 10, 110, 30);
+        Ljugador4.setFont(new java.awt.Font("Arial Black", 1, 12)); // NOI18N
+        Ljugador4.setText("\"DISPONIBLE\"");
+        jPanelJugador4.add(Ljugador4);
+        Ljugador4.setBounds(10, 10, 110, 30);
 
-        jPanel1.add(jPanelJugador4);
-        jPanelJugador4.setBounds(440, 80, 130, 180);
+        Lcolor4.setFont(new java.awt.Font("Arial Black", 1, 8)); // NOI18N
+        Lcolor4.setText("\"DISPONIBLE\"");
+        jPanelJugador4.add(Lcolor4);
+        Lcolor4.setBounds(30, 30, 70, 30);
+
+        jPanel1.add(jPanelJugador4, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 80, 130, 180));
 
         jButtonInicar.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButtonInicar.setForeground(new java.awt.Color(0, 255, 0));
@@ -113,11 +139,18 @@ public class FLobby extends javax.swing.JFrame {
                 jButtonInicarActionPerformed(evt);
             }
         });
-        jPanel1.add(jButtonInicar);
-        jButtonInicar.setBounds(240, 280, 110, 40);
+        jPanel1.add(jButtonInicar, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, 110, 40));
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(0, 0, 600, 370);
+
+        LFondo.setText("jLabel2");
+        getContentPane().add(LFondo);
+        LFondo.setBounds(610, 120, 50, 40);
+
+        LApuesta.setText("jLabel2");
+        getContentPane().add(LApuesta);
+        LApuesta.setBounds(610, 180, 34, 14);
 
         pack();
         setLocationRelativeTo(null);
@@ -127,11 +160,44 @@ public class FLobby extends javax.swing.JFrame {
         // TODO add your handling code here:
          /* Create and display the form */
          //Solo sera valido o el jugador creador podra iniciar
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FJuego().setVisible(true);
-            }
-        });
+                
+       
+        usuario usuario = new usuario();
+        usuario.setNombre(Ljugador1.getText());
+        usuario.setColor(Lcolor1.getText());
+        usuarios.add(usuario);
+        
+        usuario usuario2 = new usuario();
+        usuario2.setNombre(Ljugador2.getText());
+        usuario2.setColor(Lcolor2.getText());
+        usuarios.add(usuario2);
+        
+        usuario usuario3 = new usuario();
+        usuario3.setNombre(Ljugador3.getText());
+        usuario3.setColor(Lcolor3.getText());
+        usuarios.add(usuario3);
+        
+        usuario usuario4 = new usuario();
+        usuario4.setNombre(Ljugador4.getText());
+        usuario4.setColor(Lcolor4.getText());
+        usuarios.add(usuario4);
+        
+         modelo.addElement(usuarios.get(0));
+         modelo.addElement(usuarios.get(1));
+         modelo.addElement(usuarios.get(2));
+         modelo.addElement(usuarios.get(3));
+         
+         
+         
+         new FJuego().setVisible(true);
+         FJuego.LNombreJugador.setText(Ljugador1.getText());
+         
+         FJuego.ListaJugadores.setModel(modelo); 
+         FJuego.LMontoActual.setText(LFondo.getText());
+         FJuego.LMontoActual1.setText(LFondo.getText());
+         
+         FJuego.LPena.setText(LApuesta.getText());
+         FJuego.LPena1.setText(LApuesta.getText());
     }//GEN-LAST:event_jButtonInicarActionPerformed
 
 //    /**
@@ -171,17 +237,23 @@ public class FLobby extends javax.swing.JFrame {
 //    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    public static javax.swing.JLabel LApuesta;
+    public static javax.swing.JLabel LFondo;
+    public static javax.swing.JLabel Lcolor1;
+    public static javax.swing.JLabel Lcolor2;
+    public static javax.swing.JLabel Lcolor3;
+    public static javax.swing.JLabel Lcolor4;
+    public static javax.swing.JLabel Ljugador1;
+    public static javax.swing.JLabel Ljugador2;
+    public static javax.swing.JLabel Ljugador3;
+    public static javax.swing.JLabel Ljugador4;
     private javax.swing.JButton jButtonInicar;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JPanel jPanelJugador1;
-    private javax.swing.JPanel jPanelJugador2;
-    private javax.swing.JPanel jPanelJugador3;
-    private javax.swing.JPanel jPanelJugador4;
+    public static javax.swing.JPanel jPanelJugador1;
+    public static javax.swing.JPanel jPanelJugador2;
+    public static javax.swing.JPanel jPanelJugador3;
+    public static javax.swing.JPanel jPanelJugador4;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
     // End of variables declaration//GEN-END:variables
