@@ -22,6 +22,7 @@ public class FachadaNegocio implements INegocio {
     public void dibujarTablero(Graphics g, int tamaño) {
         //Solamente  esta puesto el tamaño de 14, mañana modificaremos los tamaños los tamaño 10 y 12
         if (tamaño == 14) {
+
             int xA1[] = {260, 300, 272, 232};
             int yA1[] = {260, 220, 192, 232};
             Figura cA1 = new CasillaEntradaSalida(xA1, yA1, g, "cA1");
@@ -1115,6 +1116,104 @@ public class FachadaNegocio implements INegocio {
     public void dibujarDados(Graphics g) {
         //Despues se implementara el azar
         //    F1    g.drawOval(52, 87, 35, 35);
+
+        //
+        g.setColor(Color.RED);
+        g.fillOval(40, 80, 30, 30);
+        g.fillOval(80, 40, 30, 30);
+
+        g.fillOval(70, 110, 30, 30);
+        g.fillOval(110, 70, 30, 30);
+
+        g.fillOval(100, 140, 30, 30);
+        g.fillOval(140, 100, 30, 30);
+
+        g.fillOval(127, 167, 30, 30);
+        g.fillOval(167, 127, 30, 30);
+
+        g.fillOval(154, 194, 30, 30);
+        g.fillOval(194, 154, 30, 30);
+
+        g.fillOval(181, 221, 30, 30);
+        g.fillOval(221, 181, 30, 30);
+
+        g.fillOval(211, 251, 30, 30);
+        g.fillOval(251, 211, 30, 30);
+
+        g.setColor(Color.GREEN);
+        g.fillOval(480, 40, 30, 30);
+        g.fillOval(520, 80, 30, 30);
+
+        g.fillOval(453, 67, 30, 30);
+        g.fillOval(493, 107, 30, 30);
+
+        g.fillOval(426, 94, 30, 30);
+        g.fillOval(466, 134, 30, 30);
+
+        g.fillOval(399, 121, 30, 30);
+        g.fillOval(439, 161, 30, 30);
+
+        g.fillOval(399, 121, 30, 30);
+        g.fillOval(439, 161, 30, 30);
+
+        g.fillOval(372, 148, 30, 30);
+        g.fillOval(412, 188, 30, 30);
+
+        g.fillOval(345, 180, 30, 30);
+        g.fillOval(385, 220, 30, 30);
+
+        g.fillOval(318, 210, 30, 30);
+        g.fillOval(358, 250, 30, 30);
+
+        g.setColor(Color.BLUE);
+        g.fillOval(40, 480, 30, 30);
+        g.fillOval(80, 520, 30, 30);
+
+        g.fillOval(67, 453, 30, 30);
+        g.fillOval(107, 493, 30, 30);
+
+        g.fillOval(94, 426, 30, 30);
+        g.fillOval(134, 466, 30, 30);
+
+        g.fillOval(121, 399, 30, 30);
+        g.fillOval(161, 439, 30, 30);
+
+        g.fillOval(121, 399, 30, 30);
+        g.fillOval(161, 439, 30, 30);
+
+        g.fillOval(148, 372, 30, 30);
+        g.fillOval(188, 412, 30, 30);
+
+        g.fillOval(180, 345, 30, 30);
+        g.fillOval(220, 385, 30, 30);
+
+        g.fillOval(210, 318, 30, 30);
+        g.fillOval(250, 358, 30, 30);
+
+        g.setColor(Color.BLACK);
+        g.fillOval(525, 490, 30, 30);
+        g.fillOval(490, 525, 30, 30);
+
+        g.fillOval(500, 460, 30, 30);
+        g.fillOval(460, 500, 30, 30);
+
+        g.fillOval(470, 430, 30, 30);
+        g.fillOval(430, 470, 30, 30);
+
+        g.fillOval(440, 400, 30, 30);
+        g.fillOval(400, 440, 30, 30);
+
+        g.fillOval(415, 370, 30, 30);
+        g.fillOval(370, 415, 30, 30);
+
+        g.fillOval(390, 340, 30, 30);
+        g.fillOval(340, 390, 30, 30);
+
+        g.fillOval(365, 310, 30, 30);
+        g.fillOval(310, 365, 30, 30);
+
+        //Centro
+      
         Figura f1 = new Dado(35, 35, 70, 105, false, g, "f1");
 //      F2  g.drawOval(157, 87, 35, 35);
         Figura f2 = new Dado(140, 35, 70, 105, false, g, "f1");
@@ -1130,7 +1229,7 @@ public class FachadaNegocio implements INegocio {
         dados.addElemento(f3);
         dados.addElemento(f4);
         dados.addElemento(f5);
-        dados.dibujar();
+//        dados.dibujar();
     }
 
 }

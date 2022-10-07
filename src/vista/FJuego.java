@@ -208,31 +208,31 @@ public class FJuego extends javax.swing.JFrame {
 
         jLabel8.setText("Turno ");
         jPanel2.add(jLabel8);
-        jLabel8.setBounds(10, 10, 31, 14);
+        jLabel8.setBounds(10, 10, 35, 16);
 
         jLabel9.setText("Jugador");
         jPanel2.add(jLabel9);
-        jLabel9.setBounds(10, 50, 60, 14);
+        jLabel9.setBounds(10, 50, 60, 16);
 
         jLabel10.setText("Fichas en Juego");
         jPanel2.add(jLabel10);
-        jLabel10.setBounds(10, 110, 100, 14);
+        jLabel10.setBounds(10, 110, 100, 16);
 
         jLabel11.setText("jLabel4");
         jPanel2.add(jLabel11);
-        jLabel11.setBounds(120, 50, 34, 14);
+        jLabel11.setBounds(120, 50, 41, 16);
 
         jLabel12.setText("jLabel4");
         jPanel2.add(jLabel12);
-        jLabel12.setBounds(120, 110, 34, 14);
+        jLabel12.setBounds(120, 110, 41, 16);
 
         jLabel13.setText("Monto Actual");
         jPanel2.add(jLabel13);
-        jLabel13.setBounds(10, 80, 70, 14);
+        jLabel13.setBounds(10, 80, 70, 16);
 
         jLabel14.setText("jLabel4");
         jPanel2.add(jLabel14);
-        jLabel14.setBounds(120, 80, 34, 14);
+        jLabel14.setBounds(120, 80, 41, 16);
 
         jPanel1.add(jPanel2);
         jPanel2.setBounds(0, 600, 240, 170);
@@ -299,7 +299,7 @@ public class FJuego extends javax.swing.JFrame {
 
     @Override
     public void repaint() {
-        this.negocio.dibujarDados(fichas.getGraphics());
+        this.negocio.dibujarDados(tablero.getGraphics());
     }
 
     private void lanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lanzarActionPerformed
