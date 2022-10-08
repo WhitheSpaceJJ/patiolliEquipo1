@@ -5,13 +5,16 @@
  */
 package Dominio;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Carlos
  */
-public class usuario {
-   String nombre,color;
-   
+public class Jugador {
+  private String nombre,color;
+  private Dinero dinero;
+  private ArrayList <Ficha> fichas = new ArrayList();
 
     public String getNombre() {
         return nombre;
@@ -29,18 +32,28 @@ public class usuario {
         this.color = color;
     }
 
-    public usuario(String nombre, String color) {
+    public Jugador(String nombre, String color) {
         this.nombre = nombre;
         this.color = color;
     }
 
-    public usuario() {
+    public Jugador() {
     }
    
     public void color(String color){
     
     }
 
+    public ArrayList<Ficha> getFichas() {
+        return fichas;
+    }
+
+    public void setFichas(ArrayList<Ficha> fichas) {
+        this.fichas = fichas;
+    }
+
+    
+    
     @Override
     public String toString() {
         return "usuario{" + " nombre= " + nombre + ", color= " + color + '}';

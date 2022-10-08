@@ -4,7 +4,7 @@
  */
 package vista;
 
-import Dominio.usuario;
+import Dominio.Jugador;
 import java.awt.Color;
 import javax.swing.JOptionPane;
 
@@ -123,7 +123,7 @@ public class FUnirseBUG extends javax.swing.JFrame {
         if(validarCampos()==false){
                 
                  lobby.setVisible(true);
-                 usuario u = new usuario();
+                 Jugador u = new Jugador();
                  u.setNombre(txtnomjugador.getText());
                  String color = (String) BoxColor.getSelectedItem();
                  u.setColor(color);
@@ -226,7 +226,7 @@ public class FUnirseBUG extends javax.swing.JFrame {
     }
     
     
-    public boolean validarUsuarios(usuario u) {
+    public boolean validarUsuarios(Jugador u) {
         if (u.getNombre().equals(FLobby.Ljugador1.getText()) ) {
             JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
         return true;

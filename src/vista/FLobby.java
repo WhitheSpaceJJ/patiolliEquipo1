@@ -4,7 +4,7 @@
  */
 package vista;
 
-import Dominio.usuario;
+import Dominio.Jugador;
 import java.util.ArrayList;
 import javax.swing.DefaultListModel;
 import javax.swing.DefaultListSelectionModel;
@@ -15,7 +15,7 @@ import javax.swing.DefaultListSelectionModel;
  */
 public class FLobby extends javax.swing.JFrame {
  DefaultListModel modelo = new DefaultListModel();
- ArrayList<usuario> usuarios = new ArrayList();
+ ArrayList<Jugador> usuarios = new ArrayList();
     /**
      * Creates new form FLobbyHost
      */
@@ -162,22 +162,22 @@ public class FLobby extends javax.swing.JFrame {
          //Solo sera valido o el jugador creador podra iniciar
                 
        
-        usuario usuario = new usuario();
+        Jugador usuario = new Jugador();
         usuario.setNombre(Ljugador1.getText());
         usuario.setColor(Lcolor1.getText());
         usuarios.add(usuario);
         
-        usuario usuario2 = new usuario();
+        Jugador usuario2 = new Jugador();
         usuario2.setNombre(Ljugador2.getText());
         usuario2.setColor(Lcolor2.getText());
         usuarios.add(usuario2);
         
-        usuario usuario3 = new usuario();
+        Jugador usuario3 = new Jugador();
         usuario3.setNombre(Ljugador3.getText());
         usuario3.setColor(Lcolor3.getText());
         usuarios.add(usuario3);
         
-        usuario usuario4 = new usuario();
+        Jugador usuario4 = new Jugador();
         usuario4.setNombre(Ljugador4.getText());
         usuario4.setColor(Lcolor4.getText());
         usuarios.add(usuario4);

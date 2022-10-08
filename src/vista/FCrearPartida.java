@@ -5,7 +5,8 @@
 package vista;
 
 import javax.swing.JOptionPane;
-import Dominio.usuario;
+import Dominio.Jugador;
+import Dominio.Partida;
 import java.awt.Color;
 /**
  *
@@ -13,6 +14,7 @@ import java.awt.Color;
  */
 public class FCrearPartida extends javax.swing.JFrame {
  FLobby lobby= new FLobby();
+ Partida p = new Partida();
     /**
      * Creates new form FCrearPartida
      */
@@ -218,7 +220,7 @@ public class FCrearPartida extends javax.swing.JFrame {
         if(validarCampos()==false){
                 
                  lobby.setVisible(true);
-                 usuario u = new usuario();
+                 Jugador u = new Jugador();
                  u.setNombre(txtnomjugador.getText());
                  String color = (String) BoxColor.getSelectedItem();
                  u.setColor(color);
@@ -335,7 +337,7 @@ public boolean validarCampos() {
         }
         return false;
     }
-public boolean validarUsuarios(usuario u) {
+public boolean validarUsuarios(Jugador u) {
         if (u.getNombre().equals(FLobby.Lcolor1.getText()) ) {
             JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
         return true;

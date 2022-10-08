@@ -11,6 +11,7 @@ package Dominio;
 public class Casilla {
 
     private String tipo;
+    private Ficha ficha;
 
     public Casilla(String tipo) {
         this.tipo = tipo;
@@ -24,9 +25,19 @@ public class Casilla {
         this.tipo = tipo;
     }
 
+    public Ficha getFicha() {
+        return ficha;
+    }
+
+    public void setFicha(Ficha ficha) {
+        this.ficha = ficha;
+    }
+
     @Override
     public String toString() {
-        return "Casilla{" + "tipo=" + tipo + '}';
+        return "Casilla{" + "tipo=" + tipo + ", ficha=" + ficha + '}';
     }
+    
+    
 
 }
