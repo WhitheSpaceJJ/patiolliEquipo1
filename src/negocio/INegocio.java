@@ -13,5 +13,5 @@ import java.awt.Graphics;
 public interface INegocio {
 
     public void dibujarTablero(Graphics g,int tamaño);
-        public void dibujarDados(Graphics g);
+        public void dibujarDados(Graphics g,int tamaño);
 }
