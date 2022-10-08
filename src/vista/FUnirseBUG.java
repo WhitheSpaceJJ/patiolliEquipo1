@@ -47,7 +47,6 @@ public class FUnirseBUG extends javax.swing.JFrame {
         setTitle("Unirse a Partida");
         setFocusableWindowState(false);
         setMinimumSize(new java.awt.Dimension(545, 313));
-        setPreferredSize(new java.awt.Dimension(545, 313));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));

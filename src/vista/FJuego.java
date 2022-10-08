@@ -90,10 +90,9 @@ public class FJuego extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Juego");
         setMinimumSize(new java.awt.Dimension(1268, 640));
-        setPreferredSize(new java.awt.Dimension(1250, 611));
         getContentPane().setLayout(null);
 
-        tablero.setBackground(new java.awt.Color(255, 255, 255));
+        tablero.setBackground(new java.awt.Color(204, 204, 204));
         tablero.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         tablero.setMinimumSize(new java.awt.Dimension(600, 600));
 

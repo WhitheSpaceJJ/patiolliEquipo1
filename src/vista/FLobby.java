@@ -150,7 +150,7 @@ public class FLobby extends javax.swing.JFrame {
 
         LApuesta.setText("jLabel2");
         getContentPane().add(LApuesta);
-        LApuesta.setBounds(610, 180, 34, 14);
+        LApuesta.setBounds(610, 180, 41, 16);
 
         pack();
         setLocationRelativeTo(null);

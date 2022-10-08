@@ -54,7 +54,6 @@ public class FCrearPartida extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Creacion Partida");
-        setPreferredSize(new java.awt.Dimension(629, 460));
         setResizable(false);
         getContentPane().setLayout(null);
 
@@ -81,7 +80,6 @@ public class FCrearPartida extends javax.swing.JFrame {
         jButton2.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jButton2.setForeground(new java.awt.Color(204, 0, 0));
         jButton2.setText("Borrar");
-        jButton2.setActionCommand("Borrar");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -89,7 +87,6 @@ public class FCrearPartida extends javax.swing.JFrame {
         });
         jPanel1.add(jButton2);
         jButton2.setBounds(100, 170, 110, 40);
-        jButton2.getAccessibleContext().setAccessibleName("Borrar");
         jButton2.getAccessibleContext().setAccessibleDescription("");
 
         jPanel1.add(jSeparator2);
