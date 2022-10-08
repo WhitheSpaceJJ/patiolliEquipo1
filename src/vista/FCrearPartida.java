@@ -6,7 +6,7 @@ package vista;
 
 import javax.swing.JOptionPane;
 import Dominio.Jugador;
-import Dominio.Partida;
+import conexiones.Partida;
 import java.awt.Color;
 /**
  *

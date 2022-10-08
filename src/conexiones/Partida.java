@@ -3,37 +3,46 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Dominio;
+package conexiones;
 
+import Dominio.Tablero;
 import conexiones.Iverificaciones;
 
 /**
  *
  * @author Carlos
  */
-public class Partida implements Iverificaciones{
+public final class Partida {
 
-    @Override
-    public void VerificarCamposNumericos(String datos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    private static Partida instancePartida;
+    private String numeroPartida;
+    private static Tablero tablero;
+
+    private Partida(String numeroPartida) {
+        this.numeroPartida = numeroPartida;
     }
 
-    @Override
-    public void VerificarCamposTexto(String datos) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public static Partida getPartida(String partida) {
+        if (partida == null) {
+            instancePartida = new Partida(partida);
+        }
+        return instancePartida;
     }
 
-    @Override
-    public void VerificarNombre(String nombre) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public String getNumeroPartida() {
+        return numeroPartida;
     }
 
-    @Override
-    public void VerificarColor(String color) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public void setNumeroPartida(String numeroPartida) {
+        this.numeroPartida = numeroPartida;
     }
 
- 
+    public static Tablero getTablero() {
+        return tablero;
+    }
 
-    
+    public static void setTablero(Tablero tablero) {
+        Partida.tablero = tablero;
+    }
+
 }
