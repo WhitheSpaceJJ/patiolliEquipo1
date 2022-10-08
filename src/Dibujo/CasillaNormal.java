@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package negocio;
+package Dibujo;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,25 +12,20 @@ import java.awt.Polygon;
  *
  * @author Judi
  */
-public class CasillaEspecial extends Figura {
-
+public class CasillaNormal extends Figura {
     private int[] x;
     private int[] y;
     private Graphics g;
-    private Polygon p;
 
-    public CasillaEspecial(int[] x, int[] y, Graphics g, String posicion, Polygon p) {
+    public CasillaNormal(int[] x, int[] y, Graphics g, String posicion) {
         super(posicion);
         this.x = x;
         this.y = y;
         this.g = g;
-        this.p = p;
     }
 
     @Override
     public void dibujar() {
-        g.setColor(Color.red);
-        g.fillPolygon(p);
         g.setColor(Color.black);
         Polygon polygon1 = new Polygon(x, y, x.length);
         g.drawPolygon(polygon1);
@@ -59,4 +54,5 @@ public class CasillaEspecial extends Figura {
     public void setG(Graphics g) {
         this.g = g;
     }
+
 }

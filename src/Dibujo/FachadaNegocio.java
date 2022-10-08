@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package negocio;
+package Dibujo;
 
 import java.awt.Color;
 import java.awt.Font;
@@ -915,39 +915,39 @@ public class FachadaNegocio implements INegocio {
             }
             //No Borrar sewra funcionalidad para que el usuario vea el numero de ficha para pagar apuestas correspondientes
             //En caso de requerer mover ficha
-//             for (int i = 0; i < x14.length; i++) {
-//                int x = x14[i];
-//                int y = y14[i];
-//                g.setColor(Color.white);
-//                g.setFont(new Font("arial", Font.PLAIN, 24));
-//                g.drawString(("" + (i + 1) + ""), x, y);
-//            }
+             for (int i = 0; i < x14.length; i++) {
+                int x = x14[i];
+                int y = y14[i];
+                g.setColor(Color.white);
+                g.setFont(new Font("arial", Font.PLAIN, 24));
+                g.drawString(("" + (i + 1) + ""), x, y);
+            }
         } else if (tamaño == 12) {
             for (int i = 0; i < x12.length; i++) {
                 int x = x12[i];
                 int y = y12[i];
                 g.fillOval(x, y, 30, 30);
             }
-//             for (int i = 0; i < x12.length; i++) {
-//                int x = x12[i];
-//                int y = y12[i];
-//                g.setColor(Color.white);
-//                g.setFont(new Font("arial", Font.PLAIN, 24));
-//                g.drawString(("" + (i + 1) + ""), x, y);
-//            }
+             for (int i = 0; i < x12.length; i++) {
+                int x = x12[i];
+                int y = y12[i];
+                g.setColor(Color.white);
+                g.setFont(new Font("arial", Font.PLAIN, 24));
+                g.drawString(("" + (i + 1) + ""), x, y);
+            }
         } else if (tamaño == 10) {
             for (int i = 0; i < x10.length; i++) {
                 int x = x10[i];
                 int y = y10[i];
                 g.fillOval(x, y, 30, 30);
             }
-//            for (int i = 0; i < x10.length; i++) {
-//                int x = x10[i];
-//                int y = y10[i];
-//                g.setColor(Color.white);
-//                g.setFont(new Font("arial", Font.PLAIN, 24));
-//                g.drawString(("" + (i + 1) + ""), x, y);
-//            }
+            for (int i = 0; i < x10.length; i++) {
+                int x = x10[i];
+                int y = y10[i];
+                g.setColor(Color.white);
+                g.setFont(new Font("arial", Font.PLAIN, 24));
+                g.drawString(("" + (i + 1) + ""), x, y);
+            }
 
         }
     }

@@ -7,8 +7,8 @@ package vista;
 import java.awt.Component;
 import java.awt.Graphics;
 import javax.swing.JPanel;
-import negocio.FachadaNegocio;
-import negocio.INegocio;
+import Dibujo.FachadaNegocio;
+import Dibujo.INegocio;
 
 /**
  *

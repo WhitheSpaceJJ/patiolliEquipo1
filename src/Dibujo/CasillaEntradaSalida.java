@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package negocio;
+package Dibujo;
 
 import java.awt.Color;
 import java.awt.Graphics;
@@ -12,13 +12,12 @@ import java.awt.Polygon;
  *
  * @author Judi
  */
-public class CasillaBordeada extends Figura {
-
+public class CasillaEntradaSalida  extends Figura {
     private int[] x;
     private int[] y;
     private Graphics g;
 
-    public CasillaBordeada(int[] x, int[] y, Graphics g, String posicion) {
+    public CasillaEntradaSalida (int[] x, int[] y, Graphics g, String posicion) {
         super(posicion);
         this.x = x;
         this.y = y;
@@ -27,9 +26,12 @@ public class CasillaBordeada extends Figura {
 
     @Override
     public void dibujar() {
-        g.setColor(Color.red);
-        Polygon polygon1 = new Polygon(x, y, x.length);
-        g.drawPolygon(polygon1);
+          g.setColor(Color.yellow);
+        Polygon relleno = new Polygon(x, y, x.length);
+        g.fillPolygon(relleno);
+        g.setColor(Color.black);
+        Polygon borde = new Polygon(x, y, x.length);
+        g.drawPolygon(borde);
     }
 
     public int[] getX() {
@@ -56,5 +58,5 @@ public class CasillaBordeada extends Figura {
         this.g = g;
     }
 
-
 }
+

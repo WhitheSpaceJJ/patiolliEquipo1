@@ -56,7 +56,10 @@ public class FCrearPartida extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Creacion Partida");
+        setMinimumSize(new java.awt.Dimension(629, 452));
+        setPreferredSize(new java.awt.Dimension(629, 452));
         setResizable(false);
+        setSize(new java.awt.Dimension(629, 452));
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(204, 204, 204));

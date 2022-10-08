@@ -42,7 +42,10 @@ public class FInicio extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Inicio");
+        setMinimumSize(new java.awt.Dimension(610, 400));
+        setPreferredSize(new java.awt.Dimension(610, 400));
         setResizable(false);
+        setSize(new java.awt.Dimension(610, 400));
         getContentPane().setLayout(null);
 
         titulo.setFont(new java.awt.Font("Arial Black", 1, 48)); // NOI18N
