@@ -4,44 +4,35 @@
  */
 package vista;
 
-import java.awt.Component;
 import java.awt.Graphics;
-import javax.swing.JPanel;
-import Dibujo.FachadaNegocio;
 import Dibujo.INegocio;
+import conexiones.Partida;
 
-/**
- *
- * @author Judi
- */
 public class FJuego extends javax.swing.JFrame {
-
-    private INegocio negocio;
-    private int tamaño=10;
+    private Partida partida;
+    private static FJuego instanceFJuego;
+    private int tamaño;
 
     /**
-     * Creates new form VistaJugador
+     * Creates new form FLobbyHost
      */
-    public FJuego() {
+    private FJuego() {
         initComponents();
-        this.negocio = new FachadaNegocio();
-//        JPanel p = new JPanel() {
-//            @Override
-//            public void paint(Graphics g) {
-//                super.paint(g); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/OverriddenMethodBody
-//                g.drawLine(100, 100, 200, 300);
-//            }
-//        };
-//        add(p);
-    
-    
-    
+        this.partida = Partida.getPartida();
+        this.tamaño=partida.getTamañoTablero();
+    }
+
+
+    public static FJuego getFJuego() {
+        if (instanceFJuego == null) {
+            instanceFJuego = new FJuego();
+        }
+        return instanceFJuego;
     }
 
     @Override
     public void paint(Graphics g) {
         super.paint(g);
-        this.negocio.dibujarTablero(tablero.getGraphics(), tamaño);
     }
 
     /**
@@ -295,14 +286,12 @@ public class FJuego extends javax.swing.JFrame {
 
     @Override
     public void repaint() {
-        this.negocio.dibujarDados(tablero.getGraphics(),tamaño);
+
     }
 
     private void lanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lanzarActionPerformed
-//        TODO add your handling code here:
-//        Juego.tablero(tablero.getGraphics());
-        repaint();
-//        Juego.dados(fichas.getGraphics());
+
+        
     }//GEN-LAST:event_lanzarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
@@ -316,47 +305,6 @@ public class FJuego extends javax.swing.JFrame {
         });
     }//GEN-LAST:event_jButtonSalirActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(FJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(FJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(FJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(FJuego.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FJuego().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     public static javax.swing.JLabel LMontoActual;

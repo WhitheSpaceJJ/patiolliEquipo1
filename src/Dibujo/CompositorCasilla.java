@@ -4,13 +4,9 @@
  */
 package Dibujo;
 
-import java.awt.List;
 import java.util.ArrayList;
 
-/**
- *
- * @author Judi
- */
+
 public class CompositorCasilla extends Figura {
 
     private java.util.List< Figura> lista = new ArrayList<>();

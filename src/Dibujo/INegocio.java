@@ -6,10 +6,6 @@ package Dibujo;
 
 import java.awt.Graphics;
 
-/**
- *
- * @author Judi
- */
 public interface INegocio {
 
     public void dibujarTablero(Graphics g,int tamaño);

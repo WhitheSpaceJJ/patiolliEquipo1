@@ -4,10 +4,6 @@
  */
 package Dominio;
 
-/**
- *
- * @author Judi
- */
 public class Casilla {
 
     private String tipo;

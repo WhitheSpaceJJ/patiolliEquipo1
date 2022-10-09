@@ -1,25 +1,19 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package vista;
 
-import Dominio.Jugador;
-import java.awt.Color;
+import conexiones.Partida;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author Carlos
- */
 public class FUnirse extends javax.swing.JFrame {
+
+    private Partida partida;
 
     /**
      * Creates new form FUnirse2
      */
     public FUnirse() {
         initComponents();
+        this.partida = Partida.getPartida();
     }
 
     /**
@@ -155,60 +149,16 @@ public class FUnirse extends javax.swing.JFrame {
     private void jButtonUnirseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonUnirseActionPerformed
         // TODO add your handling code here:
         /* Create and display the form */
-        
-        if(validarCampos()==false){
 
-            Jugador u = new Jugador();
-            u.setNombre(txtnomjugador.getText());
-            String color = (String) BoxColor.getSelectedItem();
-            u.setColor(color);
-
-            if (validarUsuarios(u)==false) {
-                /*
-                Codigo para asignar numeracion de jugadores temportal
-                */
-
-                if ( FLobby.Ljugador1.getText().equals("\"DISPONIBLE\"")) {
-                    JOptionPane.showMessageDialog(null, "No hay un servidor disponible, favor de crear un servidor");
-                    dispose();
-//                    FLobby.Ljugador1.setText(u.getNombre());
-//                    FLobby.Lcolor1.setText(u.getColor());
-//                    FLobby.jPanelJugador1.setBackground(ValidarColor(color));
-
-                }else if(FLobby.Ljugador2.getText().equalsIgnoreCase("\"DISPONIBLE\"")){
-                    FLobby.Ljugador2.setText(u.getNombre());
-                    FLobby.Lcolor2.setText(u.getColor());
-                    FLobby.jPanelJugador2.setBackground(ValidarColor(color));
-
-                }else if(FLobby.Ljugador3.getText().equalsIgnoreCase("\"DISPONIBLE\"")){
-                    FLobby.Ljugador3.setText(u.getNombre());
-                    FLobby.Lcolor3.setText(u.getColor());
-                    FLobby.jPanelJugador3.setBackground(ValidarColor(color));
-
-                }else if(FLobby.Ljugador4.getText().equalsIgnoreCase("\"DISPONIBLE\"")){
-                    FLobby.Ljugador4.setText(u.getNombre());
-                    FLobby.Lcolor4.setText(u.getColor());
-                    FLobby.jPanelJugador4.setBackground(ValidarColor(color));
-                    dispose();
-                }
-                /*
-                Codigo para asignar numeracion de jugadores temportal
-                */
-            }
-
-            /*
-            temporal mente desactive el dispose, para que se puedan ir agregando diferentes jugadores,
-            lo que pasa es que en la linea 16 se crea un frame configuracion_juego diferente
-            por lo tando mientras no tengamos los metodos de conexion se mantrenda el dispose como comentado.
-            */
-//            
+        if (validarConfiguración() == false) {
+            this.partida.agregarJugador(txtnomjugador.getText().toString(), this.BoxColor.getSelectedItem().toString());
+            this.mostrarPantallaLobby();
         }
     }//GEN-LAST:event_jButtonUnirseActionPerformed
 
     /**
      * @param args the command line arguments
      */
-   
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox<String> BoxColor;
@@ -222,72 +172,40 @@ public class FUnirse extends javax.swing.JFrame {
     private javax.swing.JSeparator jSeparator2;
     private javax.swing.JTextField txtnomjugador;
     // End of variables declaration//GEN-END:variables
-public boolean validarCampos() {
-        if (txtnomjugador.getText().isEmpty() ) {
-            JOptionPane.showMessageDialog(null, "Establece color y nombre de jugador para empezar");
-        return true;
+
+    public void mostrarMensajeError(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+
+    public void mostrarPantallaLobby() {
+        FLobby lobby = FLobby.getFLobby();
+        lobby.actualizaTablero();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                lobby.setVisible(true);
+            }
+        });
+        setVisible(false);
+    }
+
+    public boolean validarConfiguración() {
+        if (this.txtnomjugador.getText().isEmpty()) {
+            this.mostrarMensajeError("Establece el nombre del jugador");
+            return true;
+        } else if (this.partida.verificarNombre(this.txtnomjugador.getText())) {
+            this.mostrarMensajeError("Nombre ya ocupado");
+            return true;
+        }
+        if (this.partida.verificarColor(this.BoxColor.getSelectedItem().toString())) {
+            this.mostrarMensajeError("Color ya ocupado");
+            return true;
+        }
+        if (this.partida.validarJugadores()) {
+            this.mostrarMensajeError("Ya no hay espacios para la partida actual.Espera a que termine.");
+            return true;
         }
         return false;
     }
-    
-    
-    public boolean validarUsuarios(Jugador u) {
-        try{
-        if (u.getNombre().equals(FLobby.Ljugador1.getText()) ) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        if (u.getNombre().equals(FLobby.Ljugador2.getText()) ) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        if (u.getNombre().equals(FLobby.Ljugador3.getText()) ) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        if (u.getNombre().equals(FLobby.Ljugador4.getText())) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        
-        if (u.getColor().equals(FLobby.Lcolor1.getText())) {
-          
-            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-        return true;
-        }
-        if (u.getColor().equals(FLobby.Lcolor2.getText())) {
-            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-        return true;
-        }
-        if (u.getColor().equals(FLobby.Lcolor3.getText())) {
-            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-        return true;
-        }
-        if (u.getColor().equals(FLobby.Lcolor4.getText())) {
-            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-        return true;
-        }
-        }catch(NullPointerException e){
-        JOptionPane.showMessageDialog(null, "No hay un servidor disponible, favor de crear un servidor");
-                    dispose();
-        } 
-        
-        
-        return false;
-    }
-public Color ValidarColor(String color){
-                    switch (color) {
-                            case "Azul":
-                                return Color.BLUE;
-                            case "Amarillo":
-                                return Color.YELLOW;
-                            case "Rojo":
-                                return Color.RED;
-                            case "Verde":
-                                return Color.GREEN;
-                            }
-    return Color.WHITE;
-    
-}
 
 }

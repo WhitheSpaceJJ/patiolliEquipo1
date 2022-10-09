@@ -1,20 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package Dominio;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Carlos
- */
+
 public class Jugador {
-  private String nombre,color;
-  private Dinero dinero;
-  private ArrayList <Ficha> fichas = new ArrayList();
+
+    private String nombre, color;
+    private Dinero dinero;
+    private ArrayList<Ficha> fichas = new ArrayList();
 
     public String getNombre() {
         return nombre;
@@ -39,9 +33,9 @@ public class Jugador {
 
     public Jugador() {
     }
-   
-    public void color(String color){
-    
+
+    public void color(String color) {
+
     }
 
     public ArrayList<Ficha> getFichas() {
@@ -52,12 +46,9 @@ public class Jugador {
         this.fichas = fichas;
     }
 
-    
-    
     @Override
     public String toString() {
         return "usuario{" + " nombre= " + nombre + ", color= " + color + '}';
     }
-    
-}
 
+}

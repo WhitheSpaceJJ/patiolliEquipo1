@@ -6,10 +6,7 @@ package Dibujo;
 
 import java.util.Objects;
 
-/**
- *
- * @author Judi
- */
+
 public abstract class Figura {
 
     private String posicion;

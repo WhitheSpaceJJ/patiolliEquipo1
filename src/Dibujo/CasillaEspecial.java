@@ -8,10 +8,7 @@ import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
-/**
- *
- * @author Judi
- */
+
 public class CasillaEspecial extends Figura {
 
     private int[] x;

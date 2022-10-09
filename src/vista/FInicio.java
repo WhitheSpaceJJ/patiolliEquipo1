@@ -4,26 +4,19 @@
  */
 package vista;
 
-import java.awt.Image;
-import javax.swing.Icon;
-import javax.swing.ImageIcon;
+import conexiones.Partida;
 
-/**
- *
- * @author Judi
- */
+import javax.swing.JOptionPane;
+
 public class FInicio extends javax.swing.JFrame {
 
+  private Partida partida;
     /**
      * Creates new form Inicio
      */
     public FInicio() {
         initComponents();
-//        ImageIcon imagen = new ImageIcon("recursos/portada.jpg");
-//        getClass().getResource(imagen);
-        
-//        Icon apoyo = new ImageIcon(imagen.getImage().getScaledInstance(fondo.getWidth(), fondo.getHeight(), Image.SCALE_DEFAULT));
-//        this.fondo.setIcon(apoyo);
+        this.partida=Partida.getPartida();
     }
 
     /**
@@ -38,10 +31,12 @@ public class FInicio extends javax.swing.JFrame {
         titulo = new javax.swing.JLabel();
         jButtonEntrar = new javax.swing.JButton();
         JButtonCrear = new javax.swing.JButton();
-        fondo = new javax.swing.JLabel();
+        jPanel1 = new javax.swing.JPanel();
+        jPanel2 = new javax.swing.JPanel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Inicio");
+        setBackground(new java.awt.Color(255, 255, 255));
         setMinimumSize(new java.awt.Dimension(610, 400));
         setPreferredSize(new java.awt.Dimension(610, 400));
         setResizable(false);
@@ -73,9 +68,15 @@ public class FInicio extends javax.swing.JFrame {
         getContentPane().add(JButtonCrear);
         JButtonCrear.setBounds(450, 210, 100, 50);
 
-        fondo.setPreferredSize(new java.awt.Dimension(590, 400));
-        getContentPane().add(fondo);
-        fondo.setBounds(100, 30, 660, 310);
+        jPanel1.setBackground(new java.awt.Color(102, 204, 255));
+        jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jPanel1);
+        jPanel1.setBounds(300, 0, 310, 400);
+
+        jPanel2.setBackground(new java.awt.Color(255, 51, 51));
+        jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(0, 0, 300, 400);
 
         pack();
         setLocationRelativeTo(null);
@@ -85,6 +86,7 @@ public class FInicio extends javax.swing.JFrame {
         // TODO add your handling code here:
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
             public void run() {
                 new FCrearPartida().setVisible(true);
             }
@@ -92,13 +94,7 @@ public class FInicio extends javax.swing.JFrame {
     }//GEN-LAST:event_JButtonCrearActionPerformed
 
     private void jButtonEntrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonEntrarActionPerformed
-        // TODO add your handling code here:
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new FUnirse().setVisible(true);
-            }
-        });
+        this.recuperarPartidas();
     }//GEN-LAST:event_jButtonEntrarActionPerformed
 
     /**
@@ -139,10 +135,36 @@ public class FInicio extends javax.swing.JFrame {
         });
     }
 
+    public void recuperarPartidas() {
+        if (this.partida.validarCreacion()) {
+            this.mostrarMensajeError("No hay partidas creadas por el momento");
+        } else {
+            java.awt.EventQueue.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    new FUnirse().setVisible(true);
+                }
+            });
+        }
+    }
+
+    public void mostrarMensajeError(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
+    }
+
+    public void mostrarPantallaUnirse() {
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new FUnirse().setVisible(true);
+            }
+        });
+        setVisible(false);
+    }
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton JButtonCrear;
-    private javax.swing.JLabel fondo;
     private javax.swing.JButton jButtonEntrar;
+    private javax.swing.JPanel jPanel1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JLabel titulo;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,14 +6,12 @@ package Dominio;
 
 import java.util.ArrayList;
 
-/**
- *
- * @author Judi
- */
+
 public class Tablero {
+
     private String numeroTablero;
-    private ArrayList <Casilla> casillas = new ArrayList();
-    private ArrayList <Jugador> jugadores = new ArrayList();
+    private ArrayList<Casilla> casillas = new ArrayList();
+    private ArrayList<Jugador> jugadores = new ArrayList();
 
     public Tablero() {
     }
@@ -45,14 +43,13 @@ public class Tablero {
     public void setJugadores(ArrayList<Jugador> jugadores) {
         this.jugadores = jugadores;
     }
+    
+    
+
 
     @Override
     public String toString() {
         return "Tablero{" + "numeroTablero=" + numeroTablero + ", casillas=" + casillas + ", jugadores=" + jugadores + '}';
     }
-    
-     
-    
-    
-    
+
 }

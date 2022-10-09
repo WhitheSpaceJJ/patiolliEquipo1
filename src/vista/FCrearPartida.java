@@ -8,18 +8,19 @@ import javax.swing.JOptionPane;
 import Dominio.Jugador;
 import conexiones.Partida;
 import java.awt.Color;
-/**
- *
- * @author Judi
- */
+import java.util.Calendar;
+
+
 public class FCrearPartida extends javax.swing.JFrame {
- FLobby lobby= new FLobby();
- Partida p = new Partida();
+
+    private Partida partida;
+
     /**
      * Creates new form FCrearPartida
      */
     public FCrearPartida() {
         initComponents();
+        this.partida = Partida.getPartida();
     }
 
     /**
@@ -206,7 +207,6 @@ public class FCrearPartida extends javax.swing.JFrame {
     }//GEN-LAST:event_txtFondoActionPerformed
 
     private void jButtonMenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonMenuActionPerformed
-        // TODO add your handling code here:
         this.dispose();
     }//GEN-LAST:event_jButtonMenuActionPerformed
 
@@ -220,62 +220,19 @@ public class FCrearPartida extends javax.swing.JFrame {
 
     private void jButtonComenzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonComenzarActionPerformed
         // TODO add your handling code here:
-        if(validarCampos()==false){
-                
-                 lobby.setVisible(true);
-                 Jugador u = new Jugador();
-                 u.setNombre(txtnomjugador.getText());
-                 String color = (String) BoxColor.getSelectedItem();
-                 u.setColor(color);
-                 
-                    if (validarUsuarios(u)==false) {
-                    /*
-                     Codigo para asignar numeracion de jugadores temportal
-                     */    
-                
-                     if ( FLobby.Lcolor1.getText().equals("\"DISPONIBLE\"")) {
-                         FLobby.Ljugador1.setText(u.getNombre());
-                         FLobby.Lcolor1.setText(u.getColor());
-                         FLobby.jPanelJugador1.setBackground(ValidarColor(color));
-                    
-                     }else if(FLobby.Ljugador2.getText().equalsIgnoreCase("\"DISPONIBLE\"")){
-                         FLobby.Ljugador2.setText(u.getNombre());
-                         FLobby.jPanelJugador2.setBackground(ValidarColor(color));
-                 
-                     }else if(FLobby.Ljugador3.getText().equalsIgnoreCase("\"DISPONIBLE\"")){
-                         FLobby.Ljugador3.setText(u.getNombre());
-                         FLobby.jPanelJugador3.setBackground(ValidarColor(color));
-                         
-                     }else if(FLobby.Ljugador4.getText().equalsIgnoreCase("\"DISPONIBLE\"")){
-                         FLobby.Ljugador4.setText(u.getNombre());
-                         FLobby.jPanelJugador4.setBackground(ValidarColor(color));
-                     }
-                 /*
-                     Codigo para asignar numeracion de jugadores temportal
-                     */    
-                 }
-                    
-                   /*
-                    temporal mente desactive el dispose, para que se puedan ir agregando diferentes jugadores, 
-                    lo que pasa es que en la linea 16 se crea un frame configuracion_juego diferente
-                    por lo tando mientras no tengamos los metodos de conexion se mantrenda el dispose como comentado.
-                    */
-                   
-                   
-                 FLobby.LApuesta.setText(txtApuesta.getText());
-                 FLobby.LFondo.setText(txtFondo.getText());
-                 dispose();
-             }
-        
-        
-        
-        
-      
-        
+        if (validarConfiguracion() == false) {
+            int tamaño = Integer.valueOf(TamañoBox.getSelectedItem().toString());
+            int totalJugadores = Integer.valueOf(JugadoresBox.getSelectedItem().toString());
+            this.partida.establecerJuego(Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + "" + Calendar.getInstance().get(Calendar.SECOND), totalJugadores, tamaño);
+            this.partida.agregarJugador(txtnomjugador.getText(), this.BoxColor.getSelectedItem().toString());
+            this.mostrarPantallaLobby();
+        }
     }//GEN-LAST:event_jButtonComenzarActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
+        this.txtnomjugador.setText("");
+        this.BoxColor.setSelectedIndex(0);
     }//GEN-LAST:event_jButton2ActionPerformed
 //
 //    /**
@@ -333,67 +290,63 @@ public class FCrearPartida extends javax.swing.JFrame {
     private javax.swing.JTextField txtnomjugador;
     // End of variables declaration//GEN-END:variables
 
-public boolean validarCampos() {
-        if (txtnomjugador.getText().isEmpty() ) {
-            JOptionPane.showMessageDialog(null, "Establece color y nombre de jugador para empezar");
-        return true;
+    public boolean validarConfiguracion() {
+        if (txtnomjugador.getText().isEmpty()) {
+            this.mostrarMensajeErrorConfiguración("Establece el nombre del jugador");
+            return true;
+        }
+        Double m;
+        try {
+//Azul, Amarillo, Rojo, Verde
+            m = Double.valueOf(this.txtFondo.getText());
+        } catch (Exception e) {
+            this.mostrarMensajeErrorConfiguración("El monto de dinero contienen caracteres invalidos");
+//            JOptionPane.showMessageDialog(null, "El monto de dinero contienen caracteres invalidos");
+            return true;
+        }
+
+        if (m > 2000) {
+//            JOptionPane.showMessageDialog(null, "Por el momentto el monto de dinero debe de ser menor a 2000");
+            this.mostrarMensajeErrorConfiguración("Por el momentto el monto de dinero debe de ser menor a 2000");
+            return true;
+        } else if (m < 1000) {
+//            JOptionPane.showMessageDialog(null, "Por el momentto el monto de dinero debe de ser menor a 2000");
+            this.mostrarMensajeErrorConfiguración("Por el momentto el monto de dinero debe de ser mayor a 1000");
+            return true;
+        } else {
+            Double a;
+            try {
+//Azul, Amarillo, Rojo, Verde
+                a = Double.valueOf(this.txtApuesta.getText());
+            } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, "El monto de apuesta contienen caracteres invalidos");
+                this.mostrarMensajeErrorConfiguración("El monto de apuesta contienen caracteres invalidos");
+                return true;
+            }
+
+            double diezP = m * 0.1;
+            if (a > diezP) {
+                this.mostrarMensajeErrorConfiguración("Para un buen juego el monto por apuesta debe de ser menor a " + diezP);
+                return true;
+            }
         }
         return false;
     }
-public boolean validarUsuarios(Jugador u) {
-        if (u.getNombre().equals(FLobby.Lcolor1.getText()) ) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        if (u.getNombre().equals(FLobby.Ljugador2.getText()) ) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        if (u.getNombre().equals(FLobby.Ljugador3.getText()) ) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        if (u.getNombre().equals(FLobby.Ljugador4.getText()) ) {
-            JOptionPane.showMessageDialog(null, "Nombre ya creado, favor de usar otro");
-        return true;
-        }
-        
-        if (ValidarColor(u.getColor()).equals(FLobby.jPanelJugador1.getColorModel()) ) {
-          
-            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-        return true;
-        }
-//        if (u.getColor().equals(FLobby.txt_color2.getText()) ) {
-//            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-//        return true;
-//        }
-//        if (u.getColor().equals(FLobby.txt_color3.getText()) ) {
-//            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-//        return true;
-//        }
-//        if (u.getColor().equals(FLobby.txt_color4.getText()) ) {
-//            JOptionPane.showMessageDialog(null, "Color ocupado, favor de seleccionar otro");
-//        return true;
-//        }
-        
-        return false;
+
+    public void mostrarMensajeErrorConfiguración(String mensaje) {
+        JOptionPane.showMessageDialog(null, mensaje);
     }
-public Color ValidarColor(String color){
-                    switch (color) {
-                            case "Azul":
-                                return Color.BLUE;
-                            case "Amarillo":
-                                return Color.YELLOW;
-                            case "Rojo":
-                                return Color.RED;
-                            case "Verde":
-                                return Color.GREEN;
-                            }
-    return Color.WHITE;
-    
+
+    public void mostrarPantallaLobby() {
+        FLobby lobby = FLobby.getFLobby();
+                                lobby.actualizaTablero();
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                lobby.setVisible(true);
+            }
+        });
+        setVisible(false);
+
+    }
 }
-
-
-
-}
-

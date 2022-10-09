@@ -9,10 +9,7 @@ import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Polygon;
 
-/**
- *
- * @author Judi
- */
+
 public class FachadaNegocio implements INegocio {
 
     int y14[] = {250, 220, 188, 161, 134, 107, 80, 40, 67, 94, 121, 148, 180, 210, 256, 211, 181, 154, 127, 100, 70, 40,
