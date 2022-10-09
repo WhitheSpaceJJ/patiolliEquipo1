@@ -6,21 +6,27 @@ package vista;
 
 import javax.swing.JOptionPane;
 import Dominio.Jugador;
-import conexiones.Partida;
+import conexiones.Control;
+import conexiones.IControl;
+//import conexiones.Partida;
 import java.awt.Color;
 import java.util.Calendar;
 
 
 public class FCrearPartida extends javax.swing.JFrame {
 
-    private Partida partida;
-
+//    private Partida partida;
+//Hola
+    private IControl control;
+    
+    
     /**
      * Creates new form FCrearPartida
      */
     public FCrearPartida() {
         initComponents();
-        this.partida = Partida.getPartida();
+        this.control =Control.getControl();
+//        this.partida = Partida.getPartida();
     }
 
     /**
@@ -223,8 +229,10 @@ public class FCrearPartida extends javax.swing.JFrame {
         if (validarConfiguracion() == false) {
             int tamaño = Integer.valueOf(TamañoBox.getSelectedItem().toString());
             int totalJugadores = Integer.valueOf(JugadoresBox.getSelectedItem().toString());
-            this.partida.establecerJuego(Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + "" + Calendar.getInstance().get(Calendar.SECOND), totalJugadores, tamaño);
-            this.partida.agregarJugador(txtnomjugador.getText(), this.BoxColor.getSelectedItem().toString());
+//            this.partida.establecerJuego(Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + "" + Calendar.getInstance().get(Calendar.SECOND), totalJugadores, tamaño);
+//            this.partida.agregarJugador(txtnomjugador.getText(), this.BoxColor.getSelectedItem().toString());
+            this.control.establecerJuego(Calendar.getInstance().get(Calendar.HOUR_OF_DAY) + "" + Calendar.getInstance().get(Calendar.SECOND), totalJugadores, tamaño);
+            this.control.agregarJugador(txtnomjugador.getText(), this.BoxColor.getSelectedItem().toString());
             this.mostrarPantallaLobby();
         }
     }//GEN-LAST:event_jButtonComenzarActionPerformed

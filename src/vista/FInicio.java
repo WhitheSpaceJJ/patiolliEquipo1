@@ -4,19 +4,24 @@
  */
 package vista;
 
-import conexiones.Partida;
+import conexiones.Control;
+import conexiones.IControl;
+//import conexiones.Partida;
 
 import javax.swing.JOptionPane;
 
 public class FInicio extends javax.swing.JFrame {
 
-  private Partida partida;
+//  private Partida partida;
+    private IControl control;
+
     /**
      * Creates new form Inicio
      */
     public FInicio() {
         initComponents();
-        this.partida=Partida.getPartida();
+        this.control =Control.getControl();
+//        this.partida=Partida.getPartida();
     }
 
     /**
@@ -136,7 +141,17 @@ public class FInicio extends javax.swing.JFrame {
     }
 
     public void recuperarPartidas() {
-        if (this.partida.validarCreacion()) {
+//        if (this.partida.validarCreacion()) {
+//            this.mostrarMensajeError("No hay partidas creadas por el momento");
+//        } else {
+//            java.awt.EventQueue.invokeLater(new Runnable() {
+//                @Override
+//                public void run() {
+//                    new FUnirse().setVisible(true);
+//                }
+//            });
+//        }
+        if (this.control.validarCreacion()) {
             this.mostrarMensajeError("No hay partidas creadas por el momento");
         } else {
             java.awt.EventQueue.invokeLater(new Runnable() {
@@ -146,6 +161,7 @@ public class FInicio extends javax.swing.JFrame {
                 }
             });
         }
+
     }
 
     public void mostrarMensajeError(String mensaje) {

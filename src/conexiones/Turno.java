@@ -6,10 +6,7 @@ package conexiones;
 
 import Dominio.Jugador;
 
-/**
- *
- * @author Judi
- */
+
 public class Turno {
     private Jugador jugador;
 

@@ -1,19 +1,22 @@
-
 package vista;
 
-import conexiones.Partida;
+//import conexiones.Partida;
+import conexiones.Control;
+import conexiones.IControl;
 import javax.swing.JOptionPane;
 
 public class FUnirse extends javax.swing.JFrame {
 
-    private Partida partida;
+//    private Partida partida;
+    private IControl control;
 
     /**
      * Creates new form FUnirse2
      */
     public FUnirse() {
         initComponents();
-        this.partida = Partida.getPartida();
+//        this.partida = Partida.getPartida();
+        this.control =Control.getControl();
     }
 
     /**
@@ -150,10 +153,16 @@ public class FUnirse extends javax.swing.JFrame {
         // TODO add your handling code here:
         /* Create and display the form */
 
+//        if (validarConfiguración() == false) {
+//            this.partida.agregarJugador(txtnomjugador.getText().toString(), this.BoxColor.getSelectedItem().toString());
+//            this.mostrarPantallaLobby();
+//        }
         if (validarConfiguración() == false) {
-            this.partida.agregarJugador(txtnomjugador.getText().toString(), this.BoxColor.getSelectedItem().toString());
+            this.control.agregarJugador(txtnomjugador.getText().toString(), this.BoxColor.getSelectedItem().toString());
             this.mostrarPantallaLobby();
         }
+
+
     }//GEN-LAST:event_jButtonUnirseActionPerformed
 
     /**
@@ -190,25 +199,38 @@ public class FUnirse extends javax.swing.JFrame {
     }
 
     public boolean validarConfiguración() {
-       
+
         if (this.txtnomjugador.getText().isEmpty()) {
             this.mostrarMensajeError("Establece el nombre del jugador");
             return true;
         }
-        
-         if (this.partida.validarJugadores()) {
+//
+//        if (this.partida.validarJugadores()) {
+//            this.mostrarMensajeError("Ya no hay espacios para la partida actual.Espera a que termine.");
+//            return true;
+//        }
+//        if (this.partida.verificarNombre(this.txtnomjugador.getText())) {
+//            this.mostrarMensajeError("Nombre ya ocupado");
+//            return true;
+//        }
+//        if (this.partida.verificarColor(this.BoxColor.getSelectedItem().toString())) {
+//            this.mostrarMensajeError("Color ya ocupado");
+//            return true;
+//        }
+
+        if (this.control.validarJugadores()) {
             this.mostrarMensajeError("Ya no hay espacios para la partida actual.Espera a que termine.");
             return true;
         }
-        if (this.partida.verificarNombre(this.txtnomjugador.getText())) {
+        if (this.control.verificarNombre(this.txtnomjugador.getText())) {
             this.mostrarMensajeError("Nombre ya ocupado");
             return true;
         }
-        if (this.partida.verificarColor(this.BoxColor.getSelectedItem().toString())) {
+        if (this.control.verificarColor(this.BoxColor.getSelectedItem().toString())) {
             this.mostrarMensajeError("Color ya ocupado");
             return true;
         }
-       
+
         return false;
     }
 

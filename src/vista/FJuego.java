@@ -6,35 +6,39 @@ package vista;
 
 import Dibujo.DadoGrafico;
 import Dibujo.TableroGrafico;
+import conexiones.Control;
+import conexiones.IControl;
 import java.awt.Graphics;
-import conexiones.Partida;
+//import conexiones.Partida;
 import conexiones.Turno;
 
 public class FJuego extends javax.swing.JFrame {
 
-    private Partida partida;
+//    private Partida partida;
     private static FJuego instanceFJuego;
     private int tamaño;
     private DadoGrafico dados;
-
+private IControl control;
     /**
      * Creates new form FLobbyHost
      */
     private FJuego() {
         initComponents();
-        this.partida = Partida.getPartida();
-        this.tamaño = partida.getTamañoTablero();
-        TableroGrafico tablero = new TableroGrafico(tamaño);
-        getContentPane().add(tablero);
-        tablero.setBounds(0, 0, 600, 600);
+//        this.partida = Partida.getPartida();
+//        this.tamaño = partida.getTamañoTablero();
+        this.control =Control.getControl();
+        this.tamaño=this.control.getTamañoTablero();
+        TableroGrafico tablero2 = new TableroGrafico(tamaño);
+        getContentPane().add(tablero2);
+        tablero2.setBounds(0, 0, 600, 600);
 
     }
 
     public static FJuego getFJuego() {
         if (instanceFJuego == null) {
             instanceFJuego = new FJuego();
-           Turno turno=Partida.getPartida().getTurno();
-           LNombreJugador.setText(turno.getJugador().getNombre());
+//           Turno turno=Partida.getPartida().getTurno();
+//           LNombreJugador.setText(turno.getJugador().getNombre());
         }
         return instanceFJuego;
     }
@@ -310,6 +314,7 @@ public class FJuego extends javax.swing.JFrame {
         dados.setBounds(620, 240, 350, 350);
     }//GEN-LAST:event_lanzarActionPerformed
 
+       
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
 

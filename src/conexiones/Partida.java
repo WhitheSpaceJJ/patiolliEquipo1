@@ -7,15 +7,16 @@ import Dominio.Tablero;
 import java.util.ArrayList;
 import java.util.List;
 
-public final class Partida {
+class Partida {
 
     private static Partida instancePartida;
     private static Tablero tablero;
     private int totalJugadores;
     private int tamañoTablero;
     private String numeroPartida;
-    private Turno turno=new Turno();
-    private int contadorTurno=0;
+    private Turno turno = new Turno();
+    private int contadorTurno = 0;
+
     private Partida() {
     }
 
@@ -110,14 +111,27 @@ public final class Partida {
         return numeroPartida;
     }
 
+    public void setNumeroPartida(String numeroPartida) {
+        this.numeroPartida = numeroPartida;
+    }
+
+    public void setTotalJugadores(int totalJugadores) {
+        this.totalJugadores = totalJugadores;
+    }
+
+    public void setTamañoTablero(int tamañoTablero) {
+        this.tamañoTablero = tamañoTablero;
+    }
+
+    
+    
+    
     public Turno getTurno() {
-        if(tablero.getJugadores().size()-1==contadorTurno){
-            contadorTurno=0;
+        if (tablero.getJugadores().size() - 1 == contadorTurno) {
+            contadorTurno = 0;
         }
         turno.setJugador(tablero.getJugadores().get(contadorTurno));
         return turno;
     }
 
-    
-    
 }
