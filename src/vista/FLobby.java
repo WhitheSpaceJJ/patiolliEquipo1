@@ -21,7 +21,7 @@ public class FLobby extends javax.swing.JFrame {
      */
     private FLobby() {
         initComponents();
-        this.control =Control.getControl();
+        this.control = Control.getControl();
 //        this.partida = Partida.getPartida();
     }
 
@@ -262,43 +262,51 @@ public class FLobby extends javax.swing.JFrame {
 //            Lcolor4.setText(Partida.getPartida().getTablero().getJugadores().get(3).getColor());
 //        }
 
-        int totalJugadores = this.control.getTotalJugadores();
-        jPanelJugador1.setVisible(true);
-        jPanelJugador2.setVisible(true);
-        jPanelJugador3.setVisible(true);
-        jPanelJugador4.setVisible(true);
+//        jPanelJugador1.setVisible(true);
+//        jPanelJugador2.setVisible(true);
+//        jPanelJugador3.setVisible(true);
+//        jPanelJugador4.setVisible(true);
+//        ljugador1.setText((this.control.getTablero().getJugadores().get(0).getNombre()==null)? "Disponible":this.control.getTablero().getJugadores().get(0).getNombre());
+//        lcolor1.setText(this.control.getTablero().getJugadores().get(0)==null?"Disponible":this.control.getTablero().getJugadores().get(0).getColor());
+//  Ljugador2.setText(this.control.getTablero().getJugadores().get(1)==null? "Disponible":this.control.getTablero().getJugadores().get(1).getNombre());
+//        Lcolor2.setText(this.control.getTablero().getJugadores().get(1)==null?"Disponible":this.control.getTablero().getJugadores().get(1).getColor());
+//
+//  Ljugador3.setText(this.control.getTablero().getJugadores().get(2)==null? "Disponible":this.control.getTablero().getJugadores().get(2).getNombre());
+//        Lcolor3.setText(this.control.getTablero().getJugadores().get(}2)==null?"Disponible":this.control.getTablero().getJugadores().get(2).getColor());
+//
+//  Ljugador4.setText(this.control.getTablero().getJugadores().get(3)==null? "Disponible":this.control.getTablero().getJugadores().get(3).getNombre());
+//        Lcolor4.setText(this.control.getTablero().getJugadores().get(3)==null?"Disponible":this.control.getTablero().getJugadores().get(3).getColor());
 
-        if (totalJugadores == 1) {
-            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
-            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
-        }
-        if (totalJugadores == 2) {
-            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
-            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
-            Ljugador2.setText(this.control.getTablero().getJugadores().get(1).getNombre());
-            Lcolor2.setText(this.control.getTablero().getJugadores().get(1).getColor());
-        }
 
-        if (totalJugadores == 3) {
-            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
-            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
-            Ljugador2.setText(this.control.getTablero().getJugadores().get(1).getNombre());
-            Lcolor2.setText(this.control.getTablero().getJugadores().get(1).getColor());
-            Ljugador3.setText(this.control.getTablero().getJugadores().get(2).getNombre());
-            Lcolor3.setText(this.control.getTablero().getJugadores().get(2).getColor());
-        }
 
-        if (totalJugadores == 4) {
-            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
-            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
-            Ljugador2.setText(this.control.getTablero().getJugadores().get(1).getNombre());
-            Lcolor2.setText(this.control.getTablero().getJugadores().get(1).getColor());
-            Ljugador3.setText(this.control.getTablero().getJugadores().get(2).getNombre());
-            Lcolor3.setText(this.control.getTablero().getJugadores().get(2).getColor());
-            Ljugador4.setText(this.control.getTablero().getJugadores().get(3).getNombre());
-            Lcolor4.setText(this.control.getTablero().getJugadores().get(3).getColor());
-        }
-
+//        if (this.control.getTablero().getJugadores().size()== 1) {
+//            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
+//            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
+//        }
+//        else if (this.control.getTablero().getJugadores().size() == 2) {
+//            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
+//            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
+//            Ljugador2.setText(this.control.getTablero().getJugadores().get(1).getNombre());
+//            Lcolor2.setText(this.control.getTablero().getJugadores().get(1).getColor());
+//        }
+//        else if (this.control.getTablero().getJugadores().size() == 3) {
+//            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
+//            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
+//            Ljugador2.setText(this.control.getTablero().getJugadores().get(1).getNombre());
+//            Lcolor2.setText(this.control.getTablero().getJugadores().get(1).getColor());
+//            Ljugador3.setText(this.control.getTablero().getJugadores().get(2).getNombre());
+//            Lcolor3.setText(this.control.getTablero().getJugadores().get(2).getColor());
+//        }
+//        else  if (this.control.getTablero().getJugadores().size() == 4) {
+//            ljugador1.setText(this.control.getTablero().getJugadores().get(0).getNombre());
+//            lcolor1.setText(this.control.getTablero().getJugadores().get(0).getColor());
+//            Ljugador2.setText(this.control.getTablero().getJugadores().get(1).getNombre());
+//            Lcolor2.setText(this.control.getTablero().getJugadores().get(1).getColor());
+//            Ljugador3.setText(this.control.getTablero().getJugadores().get(2).getNombre());
+//            Lcolor3.setText(this.control.getTablero().getJugadores().get(2).getColor());
+//            Ljugador4.setText(this.control.getTablero().getJugadores().get(3).getNombre());
+//            Lcolor4.setText(this.control.getTablero().getJugadores().get(3).getColor());
+//        }
 //     /**
 //     * @param args the command line arguments
 //     */

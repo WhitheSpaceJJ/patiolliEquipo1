@@ -348,11 +348,8 @@ public class FCrearPartida extends javax.swing.JFrame {
     public void mostrarPantallaLobby() {
         FLobby lobby = FLobby.getFLobby();
                                 lobby.actualizaTablero();
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                lobby.setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            lobby.setVisible(true);
         });
         setVisible(false);
 
