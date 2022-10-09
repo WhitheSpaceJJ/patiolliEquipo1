@@ -7,7 +7,7 @@ import Dominio.Tablero;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Partida {
+class Partida {
 
     private static Partida instancePartida;
     private static Tablero tablero;
