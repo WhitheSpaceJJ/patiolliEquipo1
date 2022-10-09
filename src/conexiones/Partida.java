@@ -15,6 +15,7 @@ public final class Partida {
     private int tamañoTablero;
     private String numeroPartida;
     private Turno turno=new Turno();
+    private int contadorTurno=0;
     private Partida() {
     }
 
@@ -109,4 +110,14 @@ public final class Partida {
         return numeroPartida;
     }
 
+    public Turno getTurno() {
+        if(tablero.getJugadores().size()-1==contadorTurno){
+            contadorTurno=0;
+        }
+        turno.setJugador(tablero.getJugadores().get(contadorTurno));
+        return turno;
+    }
+
+    
+    
 }

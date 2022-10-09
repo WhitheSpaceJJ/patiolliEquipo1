@@ -8,6 +8,7 @@ import Dibujo.DadoGrafico;
 import Dibujo.TableroGrafico;
 import java.awt.Graphics;
 import conexiones.Partida;
+import conexiones.Turno;
 
 public class FJuego extends javax.swing.JFrame {
 
@@ -32,6 +33,8 @@ public class FJuego extends javax.swing.JFrame {
     public static FJuego getFJuego() {
         if (instanceFJuego == null) {
             instanceFJuego = new FJuego();
+           Turno turno=Partida.getPartida().getTurno();
+           LNombreJugador.setText(turno.getJugador().getNombre());
         }
         return instanceFJuego;
     }
@@ -178,7 +181,7 @@ public class FJuego extends javax.swing.JFrame {
         LMontoActual1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         LMontoActual1.setText("VACIO");
         jPanel1.add(LMontoActual1);
-        LMontoActual1.setBounds(180, 120, 42, 19);
+        LMontoActual1.setBounds(180, 110, 42, 19);
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel4.setText("Fichas En Juego");
@@ -304,7 +307,8 @@ public class FJuego extends javax.swing.JFrame {
     private void lanzarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lanzarActionPerformed
         this.dados = new DadoGrafico();
         getContentPane().add(dados);
-        dados.setBounds(620, 240, 350, 350);    }//GEN-LAST:event_lanzarActionPerformed
+        dados.setBounds(620, 240, 350, 350);
+    }//GEN-LAST:event_lanzarActionPerformed
 
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
