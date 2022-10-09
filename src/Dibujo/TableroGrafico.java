@@ -4,36 +4,21 @@
  */
 package Dibujo;
 
-import java.awt.Color;
-import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Polygon;
+import javax.swing.JPanel;
 
+public class TableroGrafico extends JPanel {
 
-public class FachadaNegocio  {
+    private int tamaño;
 
-    int y14[] = {250, 220, 188, 161, 134, 107, 80, 40, 67, 94, 121, 148, 180, 210, 256, 211, 181, 154, 127, 100, 70, 40,
-        80, 110, 140, 167, 194, 221, 251, 290, 318, 345, 372, 399, 426, 453, 480, 520, 493, 466, 439, 412, 385, 358, 320,
-        365, 390, 415, 440, 470, 500, 525, 490, 460, 430, 400, 370, 340, 310, 290};
+    public TableroGrafico(int tamaño) {
+        this.tamaño = tamaño;
+    }
 
-    int x14[] = {358, 385, 412, 439, 466, 493, 520, 480, 453, 426, 399, 372, 345, 318, 280, 251, 221, 194, 167, 140, 110, 80,
-        40, 70, 100, 127, 154, 181, 211, 240, 210, 180, 148, 121, 94, 67, 40, 80, 107, 134, 161, 188, 220, 250, 280,
-        310, 340, 370, 400, 430, 460, 490, 525, 500, 470, 440, 415, 390, 365, 320};
-
-    int y12[] = {250, 220, 188, 161, 134, 107, 67, 94, 121, 148, 180, 210, 256, 211, 181, 154, 127, 100, 70, 110, 140, 167, 194, 221, 251, 290, 318, 345, 372, 399, 426, 453, 493, 466, 439, 412, 385, 358,
-        320, 365, 390, 415, 440, 470, 500, 460, 430, 400, 370, 340, 310, 290};
-    int x12[] = {358, 385, 412, 439, 466, 493, 453, 426, 399, 372, 345, 318, 280, 251, 221, 194, 167, 140, 110, 70, 100, 127, 154, 181, 211, 240, 210, 180, 148, 121, 94, 67, 107, 134, 161, 188, 220, 250,
-        280, 310, 340, 370, 400, 430, 460, 500, 470, 440, 415, 390, 365, 320};
-
-    int y10[] = {250, 220, 188, 161, 134, 94, 121, 148, 180, 210, 256, 211, 181, 154, 127, 100,
-        140, 167, 194, 221, 251, 290, 318, 345, 372, 399, 426, 466, 439, 412, 385, 358,
-        320, 365, 390, 415, 440, 470, 430, 400, 370, 340, 310, 290};
-    int x10[] = {358, 385, 412, 439, 466, 426, 399, 372, 345, 318, 280, 251, 221, 194, 167, 140, 100, 127, 154, 181, 211, 240, 210, 180, 148, 121, 94, 134, 161, 188, 220, 250,
-        280, 310, 340, 370, 400, 430, 470, 440, 415, 390, 365, 320};
-
-    public void dibujarTablero(Graphics g, int tamaño) {
-        //Solamente  esta puesto el tamaño de 14, mañana modificaremos los tamaños los tamaño 10 y 12
-        if (tamaño == 14) {
+    @Override
+    public void paintComponent(Graphics g) {
+         if (tamaño == 14) {
 
             int xA1[] = {260, 300, 272, 232};
             int yA1[] = {260, 220, 192, 232};
@@ -901,69 +886,6 @@ public class FachadaNegocio  {
         }
     }
 
-    public void dibujarDados(Graphics g, int tamaño) {
-        if (tamaño == 14) {
-            for (int i = 0; i < x14.length; i++) {
-                int x = x14[i];
-                int y = y14[i];
-                g.fillOval(x, y, 30, 30);
-            }
-            //No Borrar sewra funcionalidad para que el usuario vea el numero de ficha para pagar apuestas correspondientes
-            //En caso de requerer mover ficha
-             for (int i = 0; i < x14.length; i++) {
-                int x = x14[i];
-                int y = y14[i];
-                g.setColor(Color.white);
-                g.setFont(new Font("arial", Font.PLAIN, 24));
-                g.drawString(("" + (i + 1) + ""), x, y);
-            }
-        } else if (tamaño == 12) {
-            for (int i = 0; i < x12.length; i++) {
-                int x = x12[i];
-                int y = y12[i];
-                g.fillOval(x, y, 30, 30);
-            }
-             for (int i = 0; i < x12.length; i++) {
-                int x = x12[i];
-                int y = y12[i];
-                g.setColor(Color.white);
-                g.setFont(new Font("arial", Font.PLAIN, 24));
-                g.drawString(("" + (i + 1) + ""), x, y);
-            }
-        } else if (tamaño == 10) {
-            for (int i = 0; i < x10.length; i++) {
-                int x = x10[i];
-                int y = y10[i];
-                g.fillOval(x, y, 30, 30);
-            }
-            for (int i = 0; i < x10.length; i++) {
-                int x = x10[i];
-                int y = y10[i];
-                g.setColor(Color.white);
-                g.setFont(new Font("arial", Font.PLAIN, 24));
-                g.drawString(("" + (i + 1) + ""), x, y);
-            }
 
-        }
-    }
+
 }
-
-//    @Override
-//    public void dibujarDados(Graphics g) {
-////        Figura f1 = new Dado(35, 35, 70, 105, false, g, "f1");
-//////      F2  g.drawOval(157, 87, 35, 35);
-////        Figura f2 = new Dado(140, 35, 70, 105, false, g, "f1");
-//////     F3   g.drawOval(262, 87, 35, 35);
-////        Figura f3 = new Dado(245, 35, 70, 105, false, g, "f1");
-//////      F4  g.drawOval(87, 217, 35, 35);
-////        Figura f4 = new Dado(70, 175, 70, 105, false, g, "f1");
-//////    F5    g.drawOval(227, 227, 35, 35);
-////        Figura f5 = new Dado(210, 175, 70, 105, false, g, "f1");
-////        CompositorCasilla dados = new CompositorCasilla("dados");
-////        dados.addElemento(f1);
-////        dados.addElemento(f2);
-////        dados.addElemento(f3);
-////        dados.addElemento(f4);
-////        dados.addElemento(f5);
-////        dados.dibujar();
-//    }
