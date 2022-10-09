@@ -1,4 +1,3 @@
-
 package conexiones;
 
 import Dominio.Casilla;
@@ -8,7 +7,6 @@ import Dominio.Tablero;
 import java.util.ArrayList;
 import java.util.List;
 
-
 public final class Partida {
 
     private static Partida instancePartida;
@@ -16,6 +14,7 @@ public final class Partida {
     private int totalJugadores;
     private int tamañoTablero;
     private String numeroPartida;
+    private Turno turno=new Turno();
     private Partida() {
     }
 
@@ -102,18 +101,12 @@ public final class Partida {
         return tamañoTablero;
     }
 
- 
     public Tablero getTablero() {
         return tablero;
     }
-
 
     public String getNumeroPartida() {
         return numeroPartida;
     }
 
-    
-    
-    
-    
 }

@@ -36,7 +36,7 @@ public class FUnirse extends javax.swing.JFrame {
         jButtonUnirse = new javax.swing.JButton();
         txtnomjugador = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(550, 300));
 
         jLabel1.setFont(new java.awt.Font("Arial Black", 1, 24)); // NOI18N
@@ -190,10 +190,17 @@ public class FUnirse extends javax.swing.JFrame {
     }
 
     public boolean validarConfiguración() {
+       
         if (this.txtnomjugador.getText().isEmpty()) {
             this.mostrarMensajeError("Establece el nombre del jugador");
             return true;
-        } else if (this.partida.verificarNombre(this.txtnomjugador.getText())) {
+        }
+        
+         if (this.partida.validarJugadores()) {
+            this.mostrarMensajeError("Ya no hay espacios para la partida actual.Espera a que termine.");
+            return true;
+        }
+        if (this.partida.verificarNombre(this.txtnomjugador.getText())) {
             this.mostrarMensajeError("Nombre ya ocupado");
             return true;
         }
@@ -201,10 +208,7 @@ public class FUnirse extends javax.swing.JFrame {
             this.mostrarMensajeError("Color ya ocupado");
             return true;
         }
-        if (this.partida.validarJugadores()) {
-            this.mostrarMensajeError("Ya no hay espacios para la partida actual.Espera a que termine.");
-            return true;
-        }
+       
         return false;
     }
 
