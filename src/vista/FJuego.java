@@ -18,7 +18,8 @@ public class FJuego extends javax.swing.JFrame {
     private static FJuego instanceFJuego;
     private int tamaño;
     private DadoGrafico dados;
-private IControl control;
+    private IControl control;
+
     /**
      * Creates new form FLobbyHost
      */
@@ -26,19 +27,17 @@ private IControl control;
         initComponents();
 //        this.partida = Partida.getPartida();
 //        this.tamaño = partida.getTamañoTablero();
-        this.control =Control.getControl();
-        this.tamaño=this.control.getTamañoTablero();
+        this.control = Control.getControl();
+        this.tamaño = this.control.getTamañoTablero();
         TableroGrafico tablero2 = new TableroGrafico(tamaño);
         getContentPane().add(tablero2);
         tablero2.setBounds(0, 0, 600, 600);
-
+        LNombreJugador.setText(control.getTurno().getJugador().getNombre());
     }
 
     public static FJuego getFJuego() {
         if (instanceFJuego == null) {
             instanceFJuego = new FJuego();
-//           Turno turno=Partida.getPartida().getTurno();
-//           LNombreJugador.setText(turno.getJugador().getNombre());
         }
         return instanceFJuego;
     }
@@ -136,7 +135,7 @@ private IControl control;
         LNombreJugador.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         LNombreJugador.setText("VACIO");
         jPanel1.add(LNombreJugador);
-        LNombreJugador.setBounds(170, 70, 80, 20);
+        LNombreJugador.setBounds(160, 70, 80, 20);
 
         jLabel6.setFont(new java.awt.Font("Arial Black", 1, 14)); // NOI18N
         jLabel6.setText("Monto Actual");
@@ -180,12 +179,12 @@ private IControl control;
         fichaRestantes.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         fichaRestantes.setText("VACIO");
         jPanel1.add(fichaRestantes);
-        fichaRestantes.setBounds(170, 200, 70, 19);
+        fichaRestantes.setBounds(160, 200, 70, 19);
 
         LMontoActual1.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         LMontoActual1.setText("VACIO");
         jPanel1.add(LMontoActual1);
-        LMontoActual1.setBounds(180, 110, 42, 19);
+        LMontoActual1.setBounds(160, 110, 42, 19);
 
         jLabel4.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
         jLabel4.setText("Fichas En Juego");
@@ -195,7 +194,7 @@ private IControl control;
         fichasEnjuego.setFont(new java.awt.Font("sansserif", 0, 14)); // NOI18N
         fichasEnjuego.setText("0");
         jPanel1.add(fichasEnjuego);
-        fichasEnjuego.setBounds(170, 160, 70, 19);
+        fichasEnjuego.setBounds(160, 160, 70, 19);
 
         getContentPane().add(jPanel1);
         jPanel1.setBounds(1000, 0, 250, 240);
@@ -314,7 +313,7 @@ private IControl control;
         dados.setBounds(620, 240, 350, 350);
     }//GEN-LAST:event_lanzarActionPerformed
 
-       
+
     private void jButtonSalirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButtonSalirActionPerformed
         // TODO add your handling code here:
 

@@ -14,10 +14,12 @@ class Partida {
     private int totalJugadores;
     private int tamañoTablero;
     private String numeroPartida;
-    private Turno turno = new Turno();
-    private int contadorTurno = 0;
+    private Turno turno ;
+    private int contadorTurno;
 
     private Partida() {
+       this.turno = new Turno();
+       this.contadorTurno=0;
     }
 
     public static Partida getPartida() {
@@ -51,7 +53,7 @@ class Partida {
             default:
                 break;
         }
-        this.tamañoTablero = tamañoTablero;
+        this.tamañoTablero = tamañoT;
         this.totalJugadores = totalJugadores;
     }
 
